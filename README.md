@@ -58,7 +58,7 @@ rpcpassword=`head -c 30 /dev/urandom | base64 | tr -d '+/='`
 bitcoind
 ```
 
-### Adding as a service
+### Adding a startup service
 
 TODO
 
@@ -87,9 +87,13 @@ sed -i -r 's/password:"[^"]+"/password:"'`grep ^rpcpassword= ~/.bitcoin/bitcoin.
 npm start
 ```
 
-Then open: http://localhost:3002/
+Then open http://localhost:3002/.
 
-### Adding as a service
+### Setup hidden service
+
+TODO
+
+### Adding a startup service
 
 TODO
 
@@ -163,7 +167,11 @@ Edit `~/eps.cfg`, add your xpubkey under `[master-public-keys]` as a new line wi
 electrum-personal-server ~/eps.cfg
 ```
 
-### Adding as a service
+### Adding as a startup service
+
+TODO
+
+### Setup hidden service
 
 TODO
 
@@ -191,6 +199,49 @@ git verify-tag v0.6.3 &&
 sudo make install
 ```
 
-### Adding as a service
+### Adding as a startup service
+
+TODO
+
+## Spark Wallet
+
+### Installing
+```bash
+# Install dependencies
+sudo apt-get install nodejs npm &&
+
+# Install Spark Wallet
+sudo npm install -g spark-wallet
+
+# TODO: verify sigs
+```
+
+### Configuring
+
+Create `~/.spark-wallet/config`, set your username/password:
+
+```
+# this grants access to the funds in your lightning wallet, pick a strong password!
+login={username}:{password}
+```
+
+Or generate random credentials with:
+
+```bash
+echo "login=`head -c 5 /dev/urandom | base64 | tr -d '+/='`:`head -c 30 /dev/urandom | base64 | tr -d '+/='`" | tee -a ~/.spark-wallet/config
+```
+
+### Running
+```bash
+spark-wallet --pairing-qr
+```
+
+Then open http://localhost:9737/.
+
+### Adding as a startup service
+
+TODO
+
+### Setup hidden service
 
 TODO
