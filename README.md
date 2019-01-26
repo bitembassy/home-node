@@ -166,3 +166,35 @@ Edit `~/eps.cfg`, add your xpubkey under `[master-public-keys]` as a new line wi
 ```bash
 electrum-personal-server ~/eps.cfg
 ```
+
+### Adding as a service
+
+TODO
+
+## c-lightning
+
+### Installting
+```bash
+# Install dependencies
+sudo apt install autoconf automake build-essential libtool libgmp-dev libsqlite3-dev net-tools zlib1g-dev &&
+
+# Download source
+git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
+# Checkout v0.6.3 (latest stable)
+git checkout v0.6.3 &&
+
+# Add signing key
+gpg --recv-keys 15EE8D6CAB0E7F0CF999BFCBD9200E6CD1ADB8F1 &&
+# Verify signature - should see XXX
+git verify-tag v0.6.3 &&
+
+# Build
+./configure && make &&
+
+# Install system-wide (requires sudo password)
+sudo make install
+```
+
+### Adding as a service
+
+TODO
