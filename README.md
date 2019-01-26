@@ -24,7 +24,7 @@ grep bitcoin-0.17.1-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - &&
 
 # Unpack binaries
 tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
-# Install binaries system-wide
+# Install binaries system-wide (requires password)
 sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
 
 # Cleanup
@@ -33,7 +33,7 @@ rm -rf ~/bitcoin-installation
 
 ### Configuring
 
-Edit `~/.bitcoin/bitcoin.conf`, add:
+Create `~/.bitcoin/bitcoin.conf`, add:
 
 ```bash
 server=1
@@ -67,7 +67,7 @@ TODO
 
 ## btc-rpc-explorer
 
-### Install
+### Installing
 ```bash
 # Install dependencies
 sudo apt install nodejs npm git &&
@@ -91,3 +91,7 @@ npm start
 ```
 
 Then open: http://localhost:3002/
+
+### Adding as a service
+
+TODO
