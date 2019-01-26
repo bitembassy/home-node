@@ -1,5 +1,4 @@
 ## Tor
-### Installing
 ```bash
 apt-get install tor
 ```
@@ -67,7 +66,7 @@ sudo apt install nodejs npm git &&
 git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer &&
 cd ~/btc-rpc-explorer &&
 # Build source
-npm install && npm run build &&
+npm install && npm run build
 ```
 
 ### Config
