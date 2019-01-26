@@ -177,7 +177,7 @@ TODO
 
 ## c-lightning
 
-### Installting
+### Installing
 ```bash
 # Install dependencies
 sudo apt install autoconf automake build-essential libtool libgmp-dev libsqlite3-dev net-tools zlib1g-dev &&
