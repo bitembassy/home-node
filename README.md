@@ -81,7 +81,7 @@ npm install && npm run build
 ### Configuring
 ```bash
 # Copy bitcoind rpc username/password from ~/.bitcoin/bitcoin.conf to ./app/credentials.js
-sed -i -r 's/username:"[^"]+"/username:"'`grep ^rpcuser= ~/.bitcoin/bitcoin.conf | cut -d= -f2`'"/' app/credentials.js
+sed -i -r 's/username:"[^"]+"/username:"'`grep ^rpcuser= ~/.bitcoin/bitcoin.conf | cut -d= -f2`'"/' app/credentials.js &&
 sed -i -r 's/password:"[^"]+"/password:"'`grep ^rpcpassword= ~/.bitcoin/bitcoin.conf | cut -d= -f2`'""/' app/credentials.js
 ```
 
