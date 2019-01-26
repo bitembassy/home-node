@@ -1,6 +1,6 @@
 ## Tor
 ```bash
-apt-get install tor
+sudo apt-get install tor
 ```
 
 ## Bitcoin Core
