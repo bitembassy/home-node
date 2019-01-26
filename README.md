@@ -125,7 +125,7 @@ sudo python3 setup.py install
 ### Configuring
 ```
 # Connect to local EPS server only
-electrum setconfig server 127.0.0.1:50002:s
+electrum setconfig server 127.0.0.1:50002:s &&
 electrum setconfig oneserver true
 ```
 
@@ -152,11 +152,7 @@ sudo pip3 install .
 
 ### Configuring
 
-Copy sample configuration file
-
-```bash
-cp ~/eps/config.cfg_sample ~/eps.cfg
-```
+Copy sample configuration file with `cp ~/eps/config.cfg_sample ~/eps.cfg`.
 
 Edit `~/eps.cfg`, add your xpubkey under `[master-public-keys]` as a new line with `{name}={xpubkey}`.
 
