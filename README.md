@@ -254,7 +254,7 @@ echo "login=`head -c 5 /dev/urandom | base64 | tr -d '+/='`:`head -c 30 /dev/ura
 
 ### Running
 ```bash
-spark-wallet --pairing-qr
+spark-wallet
 ```
 
 Then open http://localhost:9737/.
