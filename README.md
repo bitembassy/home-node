@@ -3,7 +3,7 @@
 sudo ufw enable
 ```
 
-TODO: keys-based ssh auth
+TODO: key-based ssh auth
 
 
 ## Tor
