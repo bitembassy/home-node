@@ -1,6 +1,7 @@
 ## Security
 ```bash
 sudo ufw enable
+sudo ufw allow ssh
 ```
 
 TODO: key-based ssh auth
