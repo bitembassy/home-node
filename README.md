@@ -1,3 +1,11 @@
+## Security
+```bash
+sudo ufw enable
+```
+
+TODO: keys-based ssh auth
+
+
 ## Tor
 ```bash
 sudo apt-get install tor
