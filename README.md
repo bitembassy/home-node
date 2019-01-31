@@ -144,7 +144,7 @@ wget https://download.electrum.org/3.3.2/Electrum-3.3.2.tar.gz.asc &&
 
 # Add signing key
 gpg --recv-keys 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 &&
-# Verify signature - should see Good signature from "Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>"
+# Verify signature - should see "Good signature from Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>"
 gpg --verify Electrum-3.3.2.tar.gz.asc Electrum-3.3.2.tar.gz &&
 
 # Unpack
