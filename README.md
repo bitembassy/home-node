@@ -185,12 +185,22 @@ sudo pip3 install .
 
 ### Configuring
 
-Copy sample configuration file with `cp ~/eps/config.cfg_sample ~/eps.cfg`.
+```
+#Copy sample configuration file end edit
+cp ~/eps/config.cfg_sample ~/eps.cfg &&
+gedit ~/eps.cfg
+```
 
-Edit `~/eps.cfg`, add your xpubkey under `[master-public-keys]` as a new line with `{name}={xpubkey}`.
+Find your Master Public Key in elecrum wallet and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `{name}` can be anything.
+```bash
+## Electrum Personal Server configuration file
+[master-public-keys]
+## Add electrum master public keys to this section
+## Create a wallet in electrum then go to Wallet -> Information to get the mpk
 
-`{name}` can be anything, `{xpubkey}` should be copied from your Electrum wallet.
-
+#any_name_works = [Master Public Key]
+...
+```
 ### Running
 ```bash
 electrum-personal-server ~/eps.cfg
