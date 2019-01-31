@@ -1,3 +1,11 @@
+## Update
+```bash
+# Fetches the list of available updates,upgrade current, install new ones
+sudo apt-get update &&   
+sudo apt-get upgrade &&
+sudo apt-get dist-upgrade &&
+sudo apt-get autoremove
+
 ## Security
 ```bash
 sudo ufw enable &&
