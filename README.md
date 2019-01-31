@@ -54,8 +54,9 @@ sudo cp bitcoin-0.17.1/bin/* /usr/bin
 ```
 
 ### Configuring
+Create and edit bitcoin.conf
+
 ```bash
-# Create and edit bitcoin.conf
 mkdir ~/.bitcoin &&
 gedit ~/.bitcoin/bitcoin.conf
 ```
