@@ -170,7 +170,6 @@ Electrum can now be opened from the launcher or using the command line with `ele
 ### Installing
 ```
 # Download source
-cd ~/electrum-installation &&
 git clone https://github.com/chris-belcher/electrum-personal-server.git ~/eps && cd ~/eps &&
 # Checkout v0.1.6 (latest stable)
 git checkout eps-v0.1.6 &&
