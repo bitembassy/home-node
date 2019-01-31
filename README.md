@@ -54,9 +54,12 @@ sudo cp bitcoin-0.17.1/bin/* /usr/bin
 ```
 
 ### Configuring
-
-Create `~/.bitcoin/bitcoin.conf`, add:
-
+```bash
+# Create and edit bitcoin.conf
+mkdir ~/.bitcoin &&
+gedit ~/.bitcoin/bitcoin.conf
+```
+Paste the following and save:
 ```bash
 server=1
 proxy=127.0.0.1:9050
