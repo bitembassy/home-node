@@ -67,7 +67,7 @@ server=1
 # Connect via Tor, comment if you prefer to connect directly
 proxy=127.0.0.1:9050
 
-# For faster initial sync, uncomment and set according to available memory. For example, with a 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
+# For faster initial sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
 # dbcache=???
 
 # Optional (takes more space, needed for btc-rpc-explorer)
@@ -196,7 +196,7 @@ gedit ~/eps.cfg
 
 Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
 
-Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]`as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]`(uncomment the two lines).
+Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]` as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]` (uncomment the two lines).
 
 Save `eps.cfg`
 
