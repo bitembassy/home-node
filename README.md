@@ -200,7 +200,7 @@ Save `eps.cfg`
 ```bash
 electrum-personal-server ~/eps.cfg
 ```
-
+note: Electrum Wallet will only connect to the server once bitcoind is synced.
 ### Adding as a startup service
 
 TODO
