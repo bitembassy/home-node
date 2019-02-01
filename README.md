@@ -184,7 +184,7 @@ sudo pip3 install .
 
 ### Configuring
 
-Copy the sample configuration file as `eps.cnf` end edit it:
+Copy the sample configuration file as `eps.cnf` and edit it:
 ```
 cp ~/eps/config.cfg_sample ~/eps.cfg &&
 gedit ~/eps.cfg
