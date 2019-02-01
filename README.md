@@ -63,6 +63,8 @@ gedit ~/.bitcoin/bitcoin.conf
 Add the following and save:
 ```bash
 server=1
+
+# Connect via Tor, comment if you prefer to connect directly
 proxy=127.0.0.1:9050
 
 # For faster initial sync, uncomment and set according to available memory. For example, with a 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
