@@ -184,7 +184,7 @@ sudo pip3 install .
 
 ### Configuring
 
-Copy the sample configuration file as eps.cnf end edit it:
+Copy the sample configuration file as `eps.cnf` end edit it:
 ```
 cp ~/eps/config.cfg_sample ~/eps.cfg &&
 gedit ~/eps.cfg
@@ -194,7 +194,7 @@ Find your Master Public Key in elecrum wallet (Wallet > Information) and add it 
 
 Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]`as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]`(uncomment the two lines).
 
-Save eps.cfg
+Save `eps.cfg`
 
 ### Running
 ```bash
