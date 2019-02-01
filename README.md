@@ -164,6 +164,8 @@ electrum setconfig oneserver true
 ### Running
 Electrum can now be opened from the launcher or using the command line with `electrum`.
 
+> Note: You may now open Electrum and configure a wallet, but it won't connect to a server until EPS is configured (next step) and `bitcoind` is synced.
+
 ## Electrum Personal Server
 
 ### Installing
@@ -200,7 +202,8 @@ Save `eps.cfg`
 ```bash
 electrum-personal-server ~/eps.cfg
 ```
-note: Electrum Wallet will only connect to the server once bitcoind is synced.
+> Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
+
 ### Adding as a startup service
 
 TODO
