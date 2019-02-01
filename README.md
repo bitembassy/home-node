@@ -65,8 +65,8 @@ Add the following and save:
 server=1
 proxy=127.0.0.1:9050
 
-# Check total memory with `free -m`, can be removed after initial sync
-dbcache=???
+# For faster initial sync, uncomment and set according to available memory. For example, with a 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
+# dbcache=???
 
 # Optional (takes more space, needed for btc-rpc-explorer)
 txindex=1
