@@ -192,7 +192,7 @@ cp ~/eps/config.cfg_sample ~/eps.cfg &&
 gedit ~/eps.cfg
 ```
 
-Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `{name}` can be anything. (Uncomment and replace sample xpubkey).
+Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has those lines, uncomment and replace sample xpubkey).
 
 Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]`as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]`(uncomment the two lines).
 
