@@ -60,11 +60,10 @@ Create and edit bitcoin.conf
 mkdir ~/.bitcoin &&
 gedit ~/.bitcoin/bitcoin.conf
 ```
-Paste the following and save:
+Add the following to bitcoin.conf and save:
 ```bash
 server=1
 proxy=127.0.0.1:9050
-disablewallet=1
 
 # Check total memory with `free -m`, can be removed after initial sync
 dbcache=???
@@ -191,16 +190,12 @@ cp ~/eps/config.cfg_sample ~/eps.cfg &&
 gedit ~/eps.cfg
 ```
 
-Find your Master Public Key in elecrum wallet and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `{name}` can be anything.
-```bash
-## Electrum Personal Server configuration file
-[master-public-keys]
-## Add electrum master public keys to this section
-## Create a wallet in electrum then go to Wallet -> Information to get the mpk
+Find your Master Public Key in elecrum wallet and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `{name}` can be anything. (Uncomment and replace sample xpubkey).
 
-#any_name_works = [Master Public Key]
-...
-```
+Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add to `eps.cfg under `[bitcoin-rpc]`as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]`(uncomment the two lines).
+
+Save eps.cfg
+
 ### Running
 ```bash
 electrum-personal-server ~/eps.cfg
