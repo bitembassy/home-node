@@ -252,6 +252,9 @@ network=bitcoin
 # connect via Tor, comment to connect directly
 proxy=127.0.0.1:9050
 
+# Peers won't be able to initiate the opening of new channels with this node (the node will initiate instead). To allow that, a static IP or incoming Tor access must be configured (and autolisten should be then set to true).
+autolisten=false
+
 # uncomment to set your own (public) alias. By default a random one is chosen.
 #alias=MyPublicNodeAlias
 ```
