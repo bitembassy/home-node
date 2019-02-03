@@ -298,8 +298,8 @@ sudo npm install -g spark-wallet-0.2.3-npm.tgz
 
 Create and edit `~/.spark-wallet/config`, to set your username/password:
 ```bash
-mkdir ~/.lightning &&
-gedit ~/.lightning/config
+mkdir ~/.spark-wallet &&
+gedit ~/.spark-wallet/config
 ```
 
 Then add a user-name and password and save.
@@ -308,7 +308,7 @@ Then add a user-name and password and save.
 login={username}:{password}
 ```
 
-Or generate random credentials with:
+To generate random credentials, save the empty `~/.spark-wallet/config` (skip previous step) and run:
 
 ```bash
 echo "login=`head -c 5 /dev/urandom | base64 | tr -d '+/='`:`head -c 30 /dev/urandom | base64 | tr -d '+/='`" | tee -a ~/.spark-wallet/config
