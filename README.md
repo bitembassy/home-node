@@ -279,19 +279,19 @@ sudo apt-get install nodejs npm &&
 mkdir ~/spark-installation && cd ~/spark-installation &&
 
 # Download npm package
-wget https://github.com/shesek/spark-wallet/releases/download/v0.2.2/spark-wallet-0.2.2-npm.tgz &&
+wget https://github.com/shesek/spark-wallet/releases/download/v0.2.3/spark-wallet-0.2.3-npm.tgz &&
 # Download signature
-wget https://github.com/shesek/spark-wallet/releases/download/v0.2.2/SHA256SUMS.asc &&
+wget https://github.com/shesek/spark-wallet/releases/download/v0.2.3/SHA256SUMS.asc &&
 
 # Add signing key
 gpg --keyserver hkp://keyserver.ubuntu.com/ --recv-keys FCF19B67866562F08A43AAD681F6104CD0F150FC &&
 # Verify signature - should show "Good signature from Nadav Ivgi <nadav@shesek.info>"
 gpg --verify SHA256SUMS.asc &&
 # Verify the downloaded binary matches the signed hash in SHA256SUMS.asc
-grep spark-wallet-0.2.2-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
+grep spark-wallet-0.2.3-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 
 # Install system-wide (requires sudo password)
-sudo npm install -g spark-wallet-0.2.2-npm.tgz
+sudo npm install -g spark-wallet-0.2.3-npm.tgz
 ```
 
 ### Configuring
