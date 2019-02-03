@@ -319,8 +319,7 @@ echo "login=`head -c 5 /dev/urandom | base64 | tr -d '+/='`:`head -c 30 /dev/ura
 spark-wallet
 ```
 
-Then open http://localhost:9737
-You'll be promped for the user-name and password you configured above.
+Then open http://localhost:9737 and login with the user-name and password as configured above.
 
 ### Adding as a startup service
 
