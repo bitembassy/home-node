@@ -237,6 +237,32 @@ git verify-tag v0.6.3 &&
 # Install system-wide (requires sudo password)
 sudo make install
 ```
+### Configuring
+Create and edit `~/.lightning/config`
+
+```bash
+mkdir ~/.lightning &&
+gedit ~/.lightning/config
+```
+Add the following and save:
+```bash
+# default network is testnet,"bitcoin" means mainnet
+network=bitcoin
+
+# connect via Tor, comment to connect directly
+#proxy=127.0.0.1:9050
+
+# uncomment to set your own (public) alias. By default a random one is chosen.
+#alias=MyPublicNodeAlias
+```
+### Running
+```bash
+lightningd
+```
+To test c-lightning is running:
+```bash
+lightning-cli getinfo
+```
 
 ### Adding as a startup service
 
