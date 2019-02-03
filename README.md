@@ -296,8 +296,13 @@ sudo npm install -g spark-wallet-0.2.3-npm.tgz
 
 ### Configuring
 
-Create `~/.spark-wallet/config`, set your username/password:
+Create and edit `~/.spark-wallet/config`, to set your username/password:
+```bash
+mkdir ~/.lightning &&
+gedit ~/.lightning/config
+```
 
+Then add a user-name and password and save.
 ```
 # this grants access to the funds in your lightning wallet, pick a strong password!
 login={username}:{password}
