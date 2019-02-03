@@ -250,7 +250,7 @@ Add the following and save:
 network=bitcoin
 
 # connect via Tor, comment to connect directly
-#proxy=127.0.0.1:9050
+proxy=127.0.0.1:9050
 
 # uncomment to set your own (public) alias. By default a random one is chosen.
 #alias=MyPublicNodeAlias
