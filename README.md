@@ -297,32 +297,17 @@ grep spark-wallet-0.2.3-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 sudo npm install -g spark-wallet-0.2.3-npm.tgz
 ```
 
-### Configuring
-
-Create and edit `~/.spark-wallet/config`, to set your username/password:
-```bash
-mkdir ~/.spark-wallet &&
-gedit ~/.spark-wallet/config
-```
-
-Then add a user-name and password and save.
-```
-# this grants access to the funds in your lightning wallet, pick a strong password!
-login={username}:{password}
-```
-
-To generate random credentials, save the empty `~/.spark-wallet/config` (skip previous step) and run:
-
-```bash
-echo "login=`head -c 5 /dev/urandom | base64 | tr -d '+/='`:`head -c 30 /dev/urandom | base64 | tr -d '+/='`" | tee -a ~/.spark-wallet/config
-```
-
 ### Running
 ```bash
-spark-wallet
+spark-wallet --pairing-url
 ```
 
-Then open http://localhost:9737 and login with the user-name and password as configured above.
+Spark will automatically generate random credentials and save them to `~/.spark-wallet/cookie`.
+
+The `--pairing-url` option will print the pairing url, which includes your wallet access key. You can open this URL to access your wallet.
+It will look like that: `http://localhost:9737/?access-key=[...]`.
+
+You may also use `--pairing-qr` to print a qr with the pairing url (useful for mobile access).
 
 ### Adding as a startup service
 
