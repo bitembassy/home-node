@@ -58,10 +58,8 @@ sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
 
 # Grab rpcauth helper, verify by sha256sum
 wget https://github.com/bitcoin/bitcoin/raw/v0.17.1/share/rpcauth/rpcauth.py &&
-echo "9c0b834ef565ec11b9f867390f2a38077608cd85f1b9d42ba746231ac8e411aa rpcauth.py" | sha256sum -c &&
-
-# Cleanup installation files
-rm -rf ~/bitcoin-installation
+echo "7d8e1ac7f26dd61086c5a0b9a008add5636c882bd0b1ebd897f0887482e02bee rpcauth.py" | sha256sum -c &&
+chmod +x rpcauth.py
 ```
 
 ### Configuring
@@ -85,14 +83,13 @@ proxy=127.0.0.1:9050
 txindex=1
 ```
 
-Generate random username/password for rpc access:
+Generate `rpcauth` credentials:
 
 ```bash
-echo "
-rpcuser=`head -c 5 /dev/urandom | base64 | tr -d '+/='`
-rpcpassword=`head -c 30 /dev/urandom | base64 | tr -d '+/='`
-" | tee -a ~/.bitcoin/bitcoin.conf
+~/bitcoin-installation/rpcauth.py <username>
 ```
+
+Copy the `rpcauth=...` line to `~/.bitcoin/bitcoin.conf` and take note of your password.
 
 ### Running
 ```bash
@@ -117,11 +114,10 @@ npm install && npm run build
 ```
 
 ### Configuring
-```bash
-# Copy the bitcoind rpc user/pass from ~/.bitcoin/bitcoin.conf to ./app/credentials.js
-sed -i -r 's/username:"[^"]+"/username:"'`grep ^rpcuser= ~/.bitcoin/bitcoin.conf | cut -d= -f2`'"/' app/credentials.js &&
-sed -i -r 's/password:"[^"]+"/password:"'`grep ^rpcpassword= ~/.bitcoin/bitcoin.conf | cut -d= -f2`'"/' app/credentials.js
-```
+
+Edit `~/btc-rpc-explorer/app/credentials.js`, set the bitcoind rpc username and password (from `rpcauth` above).
+
+**TODO:** The way setting crendentials works changed in a recent version of btc-rpc-explorer, this needs an updated.
 
 ### Running
 ```bash
@@ -203,7 +199,7 @@ gedit ~/eps/eps.cfg
 
 Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
 
-Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]` as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]` (uncomment the two lines).
+Under `[bitcoin-rpc]`, add two new lines with `rpc_user=<username>` and `rpc_password=<password>` (from `rpcauth` above).
 
 Under `[electrum-server]`, change `host=127.0.0.1` to `host=0.0.0.0`.
 
