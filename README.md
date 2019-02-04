@@ -56,6 +56,10 @@ tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
 # Install binaries system-wide (requires password)
 sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
 
+# Grab rpcauth helper, verify by sha256sum
+wget https://github.com/bitcoin/bitcoin/raw/v0.17.1/share/rpcauth/rpcauth.py &&
+echo "9c0b834ef565ec11b9f867390f2a38077608cd85f1b9d42ba746231ac8e411aa rpcauth.py" | sha256sum -c &&
+
 # Cleanup installation files
 rm -rf ~/bitcoin-installation
 ```
