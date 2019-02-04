@@ -204,6 +204,11 @@ Save `eps.cfg`
 ```bash
 electrum-personal-server ~/eps.cfg
 ```
+
+When running for the first time, EPS will import the addresses and quit. You should start it again.
+
+If you're importing an existing wallet with historical transactions, a rescan will be required: `electrum-personal-server-rescan ~/eps.cfg`
+
 > Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
 
 ### Adding as a startup service
