@@ -10,6 +10,7 @@ sudo apt-get autoremove
 ```bash
 sudo ufw enable &&
 sudo ufw allow ssh &&
+sudo ufw allow from 127.0.0.1 to any &&
 sudo apt-get install openssh-server &&
 
 # SSH config: disable root login, disable password auth
