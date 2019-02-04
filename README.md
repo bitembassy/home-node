@@ -25,7 +25,7 @@ Edit `/etc/sysctl.conf`, add [this](https://gist.githubusercontent.com/shesek/70
 
 ## Tor
 ```bash
-sudo apt-get install tor
+sudo apt-get install tor torbrowser-launcher
 ```
 
 ## Bitcoin Core
