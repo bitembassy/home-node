@@ -21,6 +21,13 @@ sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/s
 echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 ```
 
+## Utilities
+
+```bash
+sudo apt-get install qtqr
+```
+
+
 Edit `/etc/sysctl.conf`, add [this](https://gist.githubusercontent.com/shesek/70a6bf8e8a6f2840ae165bb0bb6da977/raw/d45791f74a50d3f0e89a1819435793b5168ff3b6/sysctl.conf).
 
 ## Tor
