@@ -340,4 +340,6 @@ HiddenServicePort 3002 127.0.0.1:3002
 HiddenServicePort 9737 127.0.0.1:9737
 ```
 
+Then restart with: `sudo service tor restart`
+
 To get your `.onion` hostname: `sudo cat /var/lib/tor/hidden_service/hostname`
