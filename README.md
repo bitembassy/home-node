@@ -23,12 +23,6 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`, add [this](https://gist.githubusercontent.com/shesek/70a6bf8e8a6f2840ae165bb0bb6da977/raw/d45791f74a50d3f0e89a1819435793b5168ff3b6/sysctl.conf).
 
-## Utilities
-
-```bash
-sudo apt-get install qtqr
-```
-
 ## Tor
 ```bash
 sudo apt-get install tor torbrowser-launcher
@@ -207,6 +201,8 @@ Find your Master Public Key in electrum wallet (Wallet > Information) and add it
 
 Find your `rpcuser` and `rpcpassword` in `~/bitcoin/bitcoin.conf` and add them to `eps.cfg` under `[bitcoin-rpc]` as a new line with `rpc_user=[user from bitcoin.conf]` and `rpc_password=[password from bitcoin.conf]` (uncomment the two lines).
 
+Under `[electrum-server]`, change `host=127.0.0.1` to `host=0.0.0.0`.
+
 Save `eps.cfg`
 
 ### Running
@@ -330,3 +326,16 @@ TODO
 ### Setup hidden service
 
 TODO
+
+
+## Hidden Services
+
+Edit `/etc/tor/torrc`, add:
+
+```
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServiceVersion 3
+HiddenServicePort 50002 127.0.0.1:50002
+HiddenServicePort 3002 127.0.0.1:3002
+HiddenServicePort 9737 127.0.0.1:9737
+```
