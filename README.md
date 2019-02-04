@@ -26,6 +26,9 @@ Edit `/etc/sysctl.conf`, add [this](https://gist.githubusercontent.com/shesek/70
 ## Tor
 ```bash
 sudo apt-get install tor torbrowser-launcher
+
+# Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
+sudo update-locale LANG=en_US.UTF-8
 ```
 
 ## Bitcoin Core
