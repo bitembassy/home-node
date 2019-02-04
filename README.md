@@ -328,7 +328,7 @@ TODO
 TODO
 
 
-## Hidden Services
+## Tor Hidden Services
 
 Edit `/etc/tor/torrc`, add:
 
