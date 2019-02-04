@@ -54,7 +54,10 @@ grep bitcoin-0.17.1-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - &&
 # Unpack binaries
 tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
 # Install binaries system-wide (requires password)
-sudo cp bitcoin-0.17.1/bin/* /usr/bin
+sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
+
+# Cleanup installation files
+rm -rf ~/bitcoin-installation
 ```
 
 ### Configuring
@@ -123,10 +126,6 @@ npm start
 
 Then open http://localhost:3002/.
 
-### Setup hidden service
-
-TODO
-
 ### Adding a startup service
 
 TODO
@@ -194,8 +193,8 @@ sudo pip3 install .
 
 Copy the sample configuration file as `eps.cnf` and edit it:
 ```
-cp ~/eps/config.cfg_sample ~/eps.cfg &&
-gedit ~/eps.cfg
+cp ~/eps/config.cfg_sample ~/eps/eps.cfg &&
+gedit ~/eps/eps.cfg
 ```
 
 Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
@@ -208,20 +207,16 @@ Save `eps.cfg`
 
 ### Running
 ```bash
-electrum-personal-server ~/eps.cfg
+electrum-personal-server ~/eps/eps.cfg
 ```
 
 When running for the first time, EPS will import the addresses and quit. You should start it again.
 
-If you're importing an existing wallet with historical transactions, a rescan will be required: `electrum-personal-server-rescan ~/eps.cfg`
+If you're importing an existing wallet with historical transactions, a rescan will be required: `electrum-personal-server-rescan ~/eps/eps.cfg`
 
 > Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
 
 ### Adding as a startup service
-
-TODO
-
-### Setup hidden service
 
 TODO
 
@@ -305,7 +300,10 @@ gpg --verify SHA256SUMS.asc &&
 grep spark-wallet-0.2.3-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 
 # Install system-wide (requires sudo password)
-sudo npm install -g spark-wallet-0.2.3-npm.tgz
+sudo npm install -g spark-wallet-0.2.3-npm.tgz &&
+
+# Cleanup installation files
+rm -rf ~/spark-installation
 ```
 
 ### Running
@@ -321,10 +319,6 @@ It will look like that: `http://localhost:9737/?access-key=[...]`.
 You may also use `--pairing-qr` to print a qr with the pairing url (useful for mobile access).
 
 ### Adding as a startup service
-
-TODO
-
-### Setup hidden service
 
 TODO
 
