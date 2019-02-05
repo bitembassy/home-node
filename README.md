@@ -90,8 +90,9 @@ server=1
 proxy=127.0.0.1:9050
 nolisten=1
 
-# For faster initial sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
-# dbcache=???
+# For faster sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`.
+# For reduced memory usage, this can be tuned down once the initial sync is complete. The default is 300 (mb).
+# dbcache=2000
 
 # Optional extended transaction index (takes more space, required for btc-rpc-explorer)
 txindex=1
