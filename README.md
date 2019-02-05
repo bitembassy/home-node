@@ -55,12 +55,16 @@ grep bitcoin-0.17.1-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - &&
 tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
 # Install binaries system-wide (requires password)
 sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
+```
 
+<!--
+```
 # Grab rpcauth helper, verify by sha256sum
 wget https://github.com/bitcoin/bitcoin/raw/v0.17.1/share/rpcauth/rpcauth.py &&
 echo "7d8e1ac7f26dd61086c5a0b9a008add5636c882bd0b1ebd897f0887482e02bee rpcauth.py" | sha256sum -c &&
 chmod +x rpcauth.py
 ```
+-->
 
 ### Configuring
 Create and edit `bitcoin.conf`
@@ -80,10 +84,17 @@ nolisten=1
 # For faster initial sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
 # dbcache=???
 
-# Optional (takes more space, needed for btc-rpc-explorer)
+# Optional (takes more space, needed for btc-rpc-explorer, not needed for EPS)
 txindex=1
+
+# Reduce bandwidth requirements (node won't relay unconfirmed transactions)
+# blocksonly=1
+
+# Reduce storage requirements (won't work with btc-rpc-explorer, will work with EPS)
+# prune=25000 # 3 months, 25GB
 ```
 
+<!--
 Generate `rpcauth` credentials:
 
 ```bash
@@ -91,10 +102,16 @@ Generate `rpcauth` credentials:
 ```
 
 Copy the `rpcauth=...` line to `~/.bitcoin/bitcoin.conf` and take note of your password.
+-->
 
 ### Running
 ```bash
 bitcoind
+```
+
+To test c-lightning is running:
+```bash
+bitcoin-cli getblockchaininfo
 ```
 
 ### Adding a startup service
@@ -110,22 +127,16 @@ sudo apt install nodejs npm git &&
 # Download source
 git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer &&
 cd ~/btc-rpc-explorer &&
-# Build source
-npm install && npm run build
+# Install system-wide (required sudo password)
+sudo npm install -g
 ```
-
-### Configuring
-
-Edit `~/btc-rpc-explorer/app/credentials.js`, set the bitcoind rpc username and password (from `rpcauth` above).
-
-**TODO:** The way setting crendentials works changed in a recent version of btc-rpc-explorer, this needs an updated.
 
 ### Running
 ```bash
-npm start
+btc-rpc-explorer --login superSecretPassword
 ```
 
-Then open http://localhost:3002/.
+Then open http://localhost:3002/ and login with an empty username and your `superSecretPassword`.
 
 ### Adding a startup service
 
@@ -200,8 +211,6 @@ gedit ~/eps/eps.cfg
 
 Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
 
-Under `[bitcoin-rpc]`, add two new lines with `rpc_user=<username>` and `rpc_password=<password>` (from `rpcauth` above).
-
 Under `[electrum-server]`, change `host=127.0.0.1` to `host=0.0.0.0`.
 
 Save `eps.cfg`
@@ -263,6 +272,7 @@ proxy=127.0.0.1:9050
 autolisten=false
 
 # uncomment to set your own (public) alias. By default a random one is chosen.
+# for privacy reasons, it is recommended not to set a custom alias.
 #alias=MyPublicNodeAlias
 ```
 ### Running
