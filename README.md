@@ -8,21 +8,27 @@ sudo apt-get autoremove
 
 ## Security
 ```bash
+# Setup firewall
 sudo ufw enable &&
-sudo ufw allow ssh &&
 sudo ufw allow from 127.0.0.1 to any &&
-sudo apt-get install openssh-server &&
-
-# SSH config: disable root login, disable password auth
-sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
-sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config &&
-# TODO: set nonstandard SSH port? instructions for setting up keys?
 
 # Secure shared memory
 echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 ```
 
 Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
+
+## SSH access
+```bash
+sudo ufw allow ssh &&
+sudo apt-get install openssh-server &&
+
+# disable root login, disable password auth
+sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
+sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config &&
+sudo service ssh reload
+# TODO: set nonstandard SSH port? instructions for setting up keys?
+```
 
 ## Tor
 ```bash
