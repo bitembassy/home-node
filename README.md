@@ -1,4 +1,4 @@
-## Update
+## Updates
 ```bash
 # Fetch the list of available updates, upgrade current
 sudo apt-get update &&   
