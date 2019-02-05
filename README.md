@@ -94,7 +94,7 @@ nolisten=1
 txindex=1
 
 # Reduce storage requirements (won't work with btc-rpc-explorer)
-# prune=25000 # 3 months, 25GB
+# prune=50000 # ~6 months, 60GB
 
 # Reduce bandwidth requirements (node won't show unconfirmed transactions)
 # blocksonly=1
