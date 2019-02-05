@@ -25,6 +25,7 @@ run_keybase
 ### Login
 Assuming you already have the app installed on your phone and an account configured:
 Press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
+
 On your phone, open the Keybase app, in the the menu select Devices, select Add New Computer and scan the QR.
 
 If you dont have an account on another device, you may create a new one insted of login.
@@ -53,4 +54,17 @@ crontab -e
 Add the following line at the bottom and save:
 ```
 @hourly ~/.lightning/keybase_backup
+```
+
+Backups should occur on the hour every hour.
+
+### Backup your hsm_secret
+The `~/.lightning/hsm_secret` file holds private keys required to accsses funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
+
+Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
+
+Note: you need to replace [YOUR KEYBASE USER NAME] with your user name.
+
+```
+cp ~/.lightning/hsm_secret /keybase/private/[YOUR KEYBASE USER NAME]/hsm_secret
 ```
