@@ -106,6 +106,8 @@ txindex=1
 # blocksonly=1
 ```
 
+Also see [jlopp's bitcoin core config generator](https://jlopp.github.io/bitcoin-core-config-generator/).
+
 <!--
 Generate `rpcauth` credentials:
 
