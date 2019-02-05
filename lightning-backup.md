@@ -30,8 +30,8 @@ On your phone, open the Keybase app, in the the menu select Devices, select Add 
 
 If you dont have an account on another device, you may create a new one insted of login.
 
-```
 ### Add an hourly backup job
+
 Open crontab editor with:
 ```
 crontab -e
