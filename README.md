@@ -18,7 +18,7 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
 
-## Envirnoment
+## Environment
 
 ```bash
 sudo apt install nodejs npm git &&
