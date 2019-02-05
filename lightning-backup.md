@@ -30,21 +30,24 @@ On your phone, open the Keybase app, in the the menu select Devices, select Add 
 
 If you dont have an account on another device, you may create a new one insted of login.
 
-### Add an hourly backup job
+### Move Database to Keybase Directory
 
-Open crontab editor with:
+Stop c-lightning:
 ```
-crontab -e
+TODO: add stop command for lightningd
 ```
 
-Add the following line at the bottom and save.
+Move database to the Keybase directory and create symbolic link in the original directory:
 Note: you need to replace [MY KEYBASE USER NAME] with your user name.
 ```
-hourly cp -f ~/.lightning/lightningd.sqlite3 /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3
-
+mv ~/.lightning/lightningd.sqlite3 /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3
+ln -s /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3 ~/.lightning/lightningd.sqlite3 
 ```
 
-Backups should occur on the hour every hour.
+Start c-lightning:
+```
+TODO: add start command for lightningd
+```
 
 ### Backup your hsm_secret
 The `~/.lightning/hsm_secret` file holds private keys required to accsses funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
