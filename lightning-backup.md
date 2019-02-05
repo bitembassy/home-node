@@ -24,36 +24,24 @@ run_keybase
 ```
 ### Login
 Assuming you already have the app installed on your phone and an account configured:
-Press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
+press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
 
 On your phone, open the Keybase app, in the the menu select Devices, select Add New Computer and scan the QR.
 
 If you dont have an account on another device, you may create a new one insted of login.
 
-### Create a backup script
-Create a backup script file
 ```
-gedit ~/.lightning/keybase_backup
-```
-
-Add the following - note: you need to replace the text in [] with your user name.
-```bash
-#!/bin/bash
-cp ~/.lightning/testbackup.sqllite3 /keybase/private/[YOUR KEYBASE USER NAME]/lightningd.sqlite3
-```
-Save and make it executable:
-```
-chmod +x ~/.lightning/keybase_backup
-```
-### Add an hourly cronjob to run the script
+### Add an hourly backup job
 Open crontab editor with:
 ```
 crontab -e
 ```
 
-Add the following line at the bottom and save:
+Add the following line at the bottom and save.
+Note: you need to replace [MY KEYBASE USER NAME] with your user name.
 ```
-@hourly ~/.lightning/keybase_backup
+hourly cp -f ~/.lightning/lightningd.sqlite3 /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3
+
 ```
 
 Backups should occur on the hour every hour.

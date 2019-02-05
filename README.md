@@ -283,6 +283,13 @@ To test c-lightning is running:
 ```bash
 lightning-cli getinfo
 ```
+### Backup
+There are two important files to backup:
+
+`~/.lightning/hsm_secret` must be backed up once.
+`~/.lightning/testbackup.sqllite3` must be backed up regulary. 
+
+To configure hourly encryped cloud backups with Keybase, [follow the instructions here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md).
 
 ## Spark Wallet
 
