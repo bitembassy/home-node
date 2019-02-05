@@ -61,6 +61,9 @@ grep bitcoin-0.17.1-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - &&
 tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
 # Install binaries system-wide (requires password)
 sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
+
+# Cleanup installation files
+rm -rf ~/bitcoin-installation
 ```
 
 <!--
