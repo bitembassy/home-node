@@ -109,7 +109,7 @@ Copy the `rpcauth=...` line to `~/.bitcoin/bitcoin.conf` and take note of your p
 bitcoind
 ```
 
-To test c-lightning is running:
+To test bitcoind is running:
 ```bash
 bitcoin-cli getblockchaininfo
 ```
