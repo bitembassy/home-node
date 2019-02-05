@@ -84,14 +84,14 @@ nolisten=1
 # For faster initial sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`. can be removed once sync is complete.
 # dbcache=???
 
-# Optional (takes more space, needed for btc-rpc-explorer, not needed for EPS)
+# Optional extended transaction index (takes more space, required for btc-rpc-explorer)
 txindex=1
 
-# Reduce bandwidth requirements (node won't relay unconfirmed transactions)
-# blocksonly=1
-
-# Reduce storage requirements (won't work with btc-rpc-explorer, will work with EPS)
+# Reduce storage requirements (won't work with btc-rpc-explorer)
 # prune=25000 # 3 months, 25GB
+
+# Reduce bandwidth requirements (node won't show unconfirmed transactions)
+# blocksonly=1
 ```
 
 <!--
