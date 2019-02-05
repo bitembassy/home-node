@@ -18,18 +18,6 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
 
-## SSH access
-```bash
-sudo ufw allow ssh &&
-sudo apt-get install openssh-server &&
-
-# disable root login, disable password auth
-sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
-sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config &&
-sudo service ssh reload
-# TODO: set nonstandard SSH port? instructions for setting up keys?
-```
-
 ## Tor
 ```bash
 sudo apt-get install tor torbrowser-launcher
@@ -319,6 +307,18 @@ It will look like that: `http://localhost:9737/?access-key=[...]`.
 
 You may also use `--pairing-qr` to print a qr with the pairing url (useful for mobile access).
 
+## SSH access
+```bash
+sudo ufw allow ssh &&
+sudo apt-get install openssh-server &&
+
+# disable root login, disable password auth
+sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
+sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config &&
+sudo service ssh reload
+# TODO: set nonstandard SSH port? instructions for setting up keys?
+```
+
 ## Tor Hidden Services
 
 Edit `/etc/tor/torrc`, add:
@@ -329,8 +329,10 @@ HiddenServiceVersion 3
 HiddenServicePort 50002 127.0.0.1:50002
 HiddenServicePort 3002 127.0.0.1:3002
 HiddenServicePort 9737 127.0.0.1:9737
+HiddenServicePort 22 127.0.0.1:22
 ```
 
 Then restart with: `sudo service tor restart`
 
 To get your `.onion` hostname: `sudo cat /var/lib/tor/hidden_service/hostname`
+
