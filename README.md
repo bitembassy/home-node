@@ -26,6 +26,8 @@ sudo apt-get install tor torbrowser-launcher
 sudo update-locale LANG=en_US.UTF-8
 ```
 
+The Tor browser can be accessed from the launcher.
+
 ## Bitcoin Core
 
 ### Installing
