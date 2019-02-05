@@ -88,6 +88,8 @@ server=1
 
 # Connect via Tor, comment if you prefer to connect directly
 proxy=127.0.0.1:9050
+
+# No incoming connections (requires port forwarding or an hidden service)
 nolisten=1
 
 # For faster sync, uncomment and set according to available memory. For example, with 8GB memory, something like dbcache=5000 might make sense. Check total memory with `free -m`.
