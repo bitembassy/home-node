@@ -114,10 +114,6 @@ To test c-lightning is running:
 bitcoin-cli getblockchaininfo
 ```
 
-### Adding a startup service
-
-TODO
-
 ## btc-rpc-explorer
 
 ### Installing
@@ -137,10 +133,6 @@ btc-rpc-explorer --login superSecretPassword
 ```
 
 Then open http://localhost:3002/ and login with an empty username and your `superSecretPassword`.
-
-### Adding a startup service
-
-TODO
 
 ## Electrum Wallet
 
@@ -226,10 +218,6 @@ If you're importing an existing wallet with historical transactions, a rescan wi
 
 > Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
 
-### Adding as a startup service
-
-TODO
-
 ## c-lightning
 
 ### Installing
@@ -284,10 +272,6 @@ To test c-lightning is running:
 lightning-cli getinfo
 ```
 
-### Adding as a startup service
-
-TODO
-
 ## Spark Wallet
 
 ### Installing
@@ -328,11 +312,6 @@ The `--pairing-url` option will print the pairing url, which includes your walle
 It will look like that: `http://localhost:9737/?access-key=[...]`.
 
 You may also use `--pairing-qr` to print a qr with the pairing url (useful for mobile access).
-
-### Adding as a startup service
-
-TODO
-
 
 ## Tor Hidden Services
 
