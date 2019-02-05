@@ -30,7 +30,7 @@ On your phone, open the Keybase app, in the the menu select Devices, select Add 
 
 If you dont have an account on another device, you may create a new one insted of login.
 
-### Move Database to Keybase Directory
+### Move Database to Keybase Backup Directory
 
 Stop c-lightning:
 ```
