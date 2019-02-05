@@ -18,6 +18,16 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
 
+## Envirnoment
+
+```bash
+sudo apt install nodejs npm git &&
+
+# Install global npm packages to ~/.npm-global (prevents permission headaches, see https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
+echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.profile
+```
+
 ## Tor
 ```bash
 sudo apt-get install tor torbrowser-launcher
@@ -114,13 +124,11 @@ bitcoin-cli getblockchaininfo
 
 ### Installing
 ```bash
-# Install dependencies
-sudo apt install nodejs npm git &&
 # Download source
 git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer &&
 cd ~/btc-rpc-explorer &&
-# Install system-wide (required sudo password)
-sudo npm install -g
+# Install user-wide
+npm install -g
 ```
 
 ### Running
@@ -290,8 +298,8 @@ gpg --verify SHA256SUMS.asc &&
 # Verify the downloaded binary matches the signed hash in SHA256SUMS.asc
 grep spark-wallet-0.2.3-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 
-# Install system-wide (requires sudo password)
-sudo npm install -g spark-wallet-0.2.3-npm.tgz &&
+# Install user-wide
+npm install -g spark-wallet-0.2.3-npm.tgz &&
 
 # Cleanup installation files
 rm -rf ~/spark-installation
