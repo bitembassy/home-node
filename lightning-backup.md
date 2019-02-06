@@ -34,11 +34,11 @@ If you dont have an account on another device, you may create a new one insted o
 
 Stop c-lightning:
 ```
-TODO: add stop command for lightningd
+lightning-cli stop
 ```
 
 Move database to the Keybase directory and create symbolic link in the original directory:
-Note: you need to replace [MY KEYBASE USER NAME] with your user name.
+Note: you need to replace `[MY KEYBASE USER NAME]` with your user name.
 ```
 mv ~/.lightning/lightningd.sqlite3 /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3
 ln -s /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3 ~/.lightning/lightningd.sqlite3 
@@ -46,7 +46,7 @@ ln -s /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3 ~/.lightning/li
 
 Start c-lightning:
 ```
-TODO: add start command for lightningd
+lightningd
 ```
 
 ### Backup your hsm_secret
@@ -54,7 +54,7 @@ The `~/.lightning/hsm_secret` file holds private keys required to accsses funds.
 
 Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
 
-Note: you need to replace [YOUR KEYBASE USER NAME] with your user name.
+Note: you need to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
 ```
 cp ~/.lightning/hsm_secret /keybase/private/[YOUR KEYBASE USER NAME]/hsm_secret
