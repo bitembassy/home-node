@@ -287,7 +287,7 @@ lightning-cli getinfo
 There are two important files to backup:
 
 `~/.lightning/hsm_secret` must be backed up once.
-`~/.lightning/testbackup.sqllite3` must be backed up regulary. 
+`~/.lightning/lightningd.sqlite3` must be backed up regulary. 
 
 To configure encrypted cloud backups with Keybase, [follow the instructions here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md).
 
