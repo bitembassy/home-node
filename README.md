@@ -337,27 +337,34 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 
 ## Startup services
 
-### bitcoind
+### Stage 1: Bitcoin, EPS, btc-rpc-explorer
+
 ```bash
-wget https://raw.githubusercontent.com/bitcoin/bitcoin/v0.17.1/contrib/init/bitcoind.service &&
-echo "8d892ba81d45443e7338d9137894990d38be6a3ab8a108a4d068e7a635900e7a  bitcoind.service" | sha256sum -c &&
-sed -i 's|/etc/bitcoin/|/home/bitcoin/.bitcoin/|' bitcoind.service &&
-sudo mv bitcoind.service /etc/systemd/system/ &&
+# Download home-node repo
+git clone https://github.com/bitembassy/home-node ~/home-node && cd ~home-node &&
+
+# Verify signature - should see "Good signature from Nadav Ivgi <nadav@shesek.info>"
+git verify-commit HEAD &&
+
+# Copy service init files
+cp init/{bitcoind,eps,btc-rpc-explorer}.service /etc/systemd/system/ &&
+
+# Reload systemd, enable services, start them
 sudo systemctl daemon-reload &&
-sudo systemctl start bitcoind &&
-sudo systemctl enable bitcoind
+sudo systemctl start bitcoind && sudo systemctl enable bitcoind &&
+sudo systemctl start eps && sudo systemctl enable eps &&
+sudo systemctl start btc-rpc-explorer && sudo systemctl enable btc-rpc-explorer
 ```
 
-### lightningd
+### Stage 2: Lightning, Spark
 ```bash
-wget https://github.com/ElementsProject/lightning/raw/v0.6.3/contrib/init/lightningd.service &&
-echo "39b7a47822971702e5b4f54e985b61ea81fa9c85c771eb0bdd95b83b86836f0a  lightningd.service" | sha256sum -c &&
-sed -i 's|/etc/lightningd/lightningd.conf|/home/bitcoin/.lightning/config|' lightningd.service &&
-sed -i 's|/usr/bin/lightningd|/usr/local/bin/lightningd|' lightningd.service &&
-sudo mv lightningd.service /etc/systemd/system/ &&
+# Copy service init files
+cp ~/home-node/init/{lightningd,spark-wallet}.service /etc/systemd/system/ &&
+
+# Reload systemd, enable services, start them
 sudo systemctl daemon-reload &&
-sudo systemctl start lightningd &&
-sudo systemctl enable lightningd
+sudo systemctl start lightningd && sudo systemctl enable lightningd &&
+sudo systemctl start spark-wallet && sudo systemctl enable spark-wallet
 ```
 
 ## LAN access
