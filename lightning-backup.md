@@ -17,11 +17,12 @@ gpg --recv-keys 222B85B0F90BE2D24CFEB93F47484E50656D16C7 &&
 # Verify signature - should see: Good signature from "Keybase.io Code Signing (v1) <code@keybase.io>"
 gpg --verify keybase_amd64.deb.sig keybase_amd64.deb &&
 
-# install and run
-sudo dpkg -i keybase_amd64.deb &&
-sudo apt-get install -f &&
-run_keybase
+# Install system-wide (requires sudo)
+sudo apt install -y ./keybase_amd64.deb
 ```
+
+Keybase can now be opened from the lauancher.
+
 ### Login
 Assuming you already have the app installed on your phone and an account configured:
 press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
