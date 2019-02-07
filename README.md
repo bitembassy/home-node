@@ -340,7 +340,7 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 wget https://raw.githubusercontent.com/bitcoin/bitcoin/v0.17.1/contrib/init/bitcoind.service &&
 echo "8d892ba81d45443e7338d9137894990d38be6a3ab8a108a4d068e7a635900e7a  bitcoind.service" | sha256sum -c &&
 sed -i 's|/etc/bitcoin/|/home/bitcoin/.bitcoin/|' bitcoind.service &&
-sudo mv bitcoind.service /etc/init/ &&
+sudo mv bitcoind.service /etc/systemd/system/ &&
 sudo systemctl daemon-reload &&
 sudo systemctl start bitcoind &&
 sudo systemctl enable bitcoind
