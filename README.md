@@ -342,8 +342,8 @@ echo "8d892ba81d45443e7338d9137894990d38be6a3ab8a108a4d068e7a635900e7a  bitcoind
 sed -i 's|/etc/bitcoin/|/home/bitcoin/.bitcoin/|' bitcoind.service &&
 sudo mv bitcoind.service /etc/init/ &&
 sudo systemctl daemon-reload &&
-systemctl start bitcoind &&
-systemctl enable bitcoind
+sudo systemctl start bitcoind &&
+sudo systemctl enable bitcoind
 ```
 
 ## SSH access (optional)
