@@ -350,7 +350,8 @@ sudo systemctl enable bitcoind
 ```bash
 wget https://github.com/ElementsProject/lightning/raw/v0.6.3/contrib/init/lightningd.service &&
 echo "39b7a47822971702e5b4f54e985b61ea81fa9c85c771eb0bdd95b83b86836f0a  lightningd.service" | sha256sum -c &&
-sed -i 's|/etc/lightningd/|/home/bitcoin/.lightning/|' lightningd.service &&
+sed -i 's|/etc/lightningd/lightningd.conf|/home/bitcoin/.lightning/config|' lightningd.service &&
+sed -i 's|/usr/bin/lightningd|/usr/local/bin/lightningd|' lightningd.service &&
 sudo mv lightningd.service /etc/systemd/system/ &&
 sudo systemctl daemon-reload &&
 sudo systemctl start lightningd &&
