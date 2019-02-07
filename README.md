@@ -341,7 +341,7 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 
 ```bash
 # Download home-node repo
-git clone https://github.com/bitembassy/home-node ~/home-node && cd ~home-node &&
+git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node &&
 
 # Verify signature - should see "Good signature from Nadav Ivgi <nadav@shesek.info>"
 git verify-commit HEAD &&
