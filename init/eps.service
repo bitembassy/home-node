@@ -5,8 +5,6 @@ Requires=bitcoind.service
 
 [Service]
 ExecStart=/usr/local/bin/electrum-personal-server /home/satoshi/eps/eps.cfg
-# wait a bit for bitcoind
-ExecStartPre=/bin/sleep 60
 
 RuntimeDirectory=eps
 PIDFile=/run/eps/eps.pid
