@@ -13,13 +13,13 @@ Requires=bitcoind.service
 After=bitcoind.service
 
 [Service]
-ExecStart=/usr/local/bin/lightningd --daemon --conf /home/bitcoin/.lightning/config --pid-file=/run/lightningd/lightningd.pid
+ExecStart=/usr/local/bin/lightningd --daemon --conf /home/satoshi/.lightning/config --pid-file=/run/lightningd/lightningd.pid
 
 # Creates /run/lightningd owned by bitcoin
 RuntimeDirectory=lightningd
 
-User=bitcoin
-Group=bitcoin
+User=satoshi
+Group=satoshi
 Type=forking
 PIDFile=/run/lightningd/lightningd.pid
 Restart=on-failure

@@ -4,14 +4,14 @@ After=bitcoind.service
 Requires=bitcoind.service
 
 [Service]
-ExecStart=/usr/local/bin/electrum-personal-server /home/bitcoin/eps/eps.cfg
+ExecStart=/usr/local/bin/electrum-personal-server /home/satoshi/eps/eps.cfg
 # wait a bit for bitcoind
 ExecStartPre=/bin/sleep 60
 
 RuntimeDirectory=eps
 PIDFile=/run/eps/eps.pid
-User=bitcoin
-Group=bitcoin
+User=satoshi
+Group=satoshi
 
 Type=simple
 KillMode=process

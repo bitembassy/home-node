@@ -5,12 +5,12 @@ Requires=bitcoind.service
 
 [Service]
 #Environment=BTCEXP_BASIC_AUTH_PASSWORD=mySuperSecretPassword
-ExecStart=/home/bitcoin/.npm-global/bin/btc-rpc-explorer
+ExecStart=/home/satoshi/.npm-global/bin/btc-rpc-explorer
 
 RuntimeDirectory=btc-rpc-explorer
 PIDFile=/run/btc-rpc-explorer/explorer.pid
-User=bitcoin
-Group=bitcoin
+User=satoshi
+Group=satoshi
 
 Type=simple
 KillMode=process

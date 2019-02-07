@@ -12,10 +12,10 @@ Description=Bitcoin daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/bitcoind -daemon -conf=/home/bitcoin/.bitcoin/bitcoin.conf -pid=/run/bitcoind/bitcoind.pid
+ExecStart=/usr/bin/bitcoind -daemon -conf=/home/satoshi/.bitcoin/bitcoin.conf -pid=/run/bitcoind/bitcoind.pid
 # Creates /run/bitcoind owned by bitcoin
 RuntimeDirectory=bitcoind
-User=bitcoin
+User=satoshi
 Type=forking
 PIDFile=/run/bitcoind/bitcoind.pid
 Restart=on-failure

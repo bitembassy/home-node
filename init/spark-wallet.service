@@ -4,11 +4,11 @@ Requires=lightningd.target
 After=lightningd.target
 
 [Service]
-User=bitcoin
-Group=bitcoin
+User=satoshi
+Group=satoshi
 Restart=on-failure
 
-ExecStart=/home/bitcoin/.npm-global/bin/spark-wallet
+ExecStart=/home/satoshi/.npm-global/bin/spark-wallet
 
 SyslogIdentifier=spark-wallet
 PIDFile=/var/run/spark-wallet.pid
