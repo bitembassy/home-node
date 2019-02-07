@@ -1,3 +1,10 @@
+## Backup the c-lightning database
+
+```bash
+sudo apt install -y sqlite3
+```
+
+TODO: backup script
 
 ## Backup the c-lightning database with Keybase
 The c-lightning database should be backed up on a regular basis so channels and their states can be restored in case of a data loss. Note: we are using Keybase (which is relatively new) for encrypted cloud backups. Make sure you feel comfortable with that and begin by installing the [app on your phone](https://keybase.io/download) and creating an account.
