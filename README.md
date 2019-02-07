@@ -332,7 +332,22 @@ It will look like that: `http://localhost:9737/?access-key=[...]`.
 
 You may also use `--pairing-qr` to print a qr with the pairing url (useful for mobile access).
 
-## SSH access
+
+## Startup services
+
+### bitcoind
+```bash
+wget https://raw.githubusercontent.com/bitcoin/bitcoin/v0.17.1/contrib/init/bitcoind.service &&
+echo "8d892ba81d45443e7338d9137894990d38be6a3ab8a108a4d068e7a635900e7a  bitcoind.service" | sha256sum -c &&
+sed -i 's|/etc/bitcoin/|/home/bitcoin/.bitcoin/|' bitcoind.service &&
+sudo mv bitcoind.service /etc/init/ &&
+sudo systemctl daemon-reload &&
+systemctl start bitcoind &&
+systemctl enable bitcoind
+```
+
+## SSH access (optional)
+
 ```bash
 sudo ufw allow ssh &&
 sudo apt install -y openssh-server &&
