@@ -30,7 +30,7 @@ echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.prof
 
 ## Tor
 ```bash
-sudo apt-get install -y tor torbrowser-launcher
+sudo apt-get install -y tor torbrowser-launcher &&
 
 # Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
 sudo update-locale LANG=en_US.UTF-8
