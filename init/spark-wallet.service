@@ -1,0 +1,26 @@
+[Unit]
+Description=Spark Lightning Wallet
+Requires=lightningd.target
+After=lightningd.target
+
+[Service]
+User=bitcoin
+Group=bitcoin
+Restart=on-failure
+
+ExecStart=/home/bitcoin/.npm-global/bin/spark-wallet
+
+SyslogIdentifier=spark-wallet
+PIDFile=/var/run/spark-wallet.pid
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+
+# Hardening measures
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+PrivateDevices=true
+
+[Install]
+WantedBy=multi-user.target
