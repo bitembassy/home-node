@@ -29,14 +29,23 @@ echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.prof
 ```
 
 ## Tor
+
+### Installing
+
 ```bash
 sudo apt install -y tor torbrowser-launcher &&
 
 # Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
-sudo update-locale LANG=en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 && source /etc/default/locale
 ```
 
-The tor browser can now be opened from the launcher.
+### Running
+
+```bash
+torbrowser-launcher
+```
+
+The tor browser can also be opened from the launcher (due to the locale bug, this only works after a logout & login).
 
 ## Bitcoin Core
 
