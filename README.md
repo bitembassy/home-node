@@ -21,7 +21,7 @@ Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/
 ## Environment
 
 ```bash
-sudo apt install nodejs npm git &&
+sudo apt-get install -y nodejs npm git &&
 
 # Install global npm packages to ~/.npm-global (prevents permission headaches, see https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
@@ -30,7 +30,7 @@ echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.prof
 
 ## Tor
 ```bash
-sudo apt-get install tor torbrowser-launcher
+sudo apt-get install -y tor torbrowser-launcher
 
 # Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
 sudo update-locale LANG=en_US.UTF-8
@@ -152,7 +152,7 @@ Then open http://localhost:3002/ and login with an empty username and your `supe
 
 ```bash
 # Install dependencies
-sudo apt-get install python3-setuptools python3-pyqt5 python3-pip &&
+sudo apt-get install -y python3-setuptools python3-pyqt5 python3-pip &&
 
 # Create dir for installation files
 mkdir ~/electrum-installation && cd ~/electrum-installation &&
@@ -235,7 +235,7 @@ If you're importing an existing wallet with historical transactions, a rescan wi
 ### Installing
 ```bash
 # Install dependencies
-sudo apt install autoconf automake build-essential libtool libgmp-dev libsqlite3-dev net-tools zlib1g-dev &&
+sudo apt install -y autoconf automake build-essential libtool libgmp-dev libsqlite3-dev net-tools zlib1g-dev &&
 
 # Download source
 git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
@@ -295,9 +295,6 @@ To configure encrypted cloud backups with Keybase, [follow the instructions here
 
 ### Installing
 ```bash
-# Install dependencies
-sudo apt-get install nodejs npm &&
-
 # Create dir for installation files
 mkdir ~/spark-installation && cd ~/spark-installation &&
 
@@ -335,7 +332,7 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 ## SSH access
 ```bash
 sudo ufw allow ssh &&
-sudo apt-get install openssh-server &&
+sudo apt-get install -y openssh-server &&
 
 # disable root login, disable password auth
 sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
