@@ -360,6 +360,12 @@ sudo systemctl start lightningd &&
 sudo systemctl enable lightningd
 ```
 
+## LAN access
+```bash
+sudo ufw allow from 192.168.0.0/24 to any port 50002
+
+# ... TODO ...
+```
 
 
 ## SSH access (optional)
