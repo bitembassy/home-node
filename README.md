@@ -21,7 +21,7 @@ Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/
 ## Environment
 
 ```bash
-sudo apt-get install -y nodejs npm git &&
+sudo apt install -y nodejs npm git &&
 
 # Install global npm packages to ~/.npm-global (prevents permission headaches, see https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
@@ -30,13 +30,13 @@ echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.prof
 
 ## Tor
 ```bash
-sudo apt-get install -y tor torbrowser-launcher &&
+sudo apt install -y tor torbrowser-launcher &&
 
 # Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
 sudo update-locale LANG=en_US.UTF-8
 ```
 
-The Tor browser can be accessed from the launcher.
+The tor browser can now be opened from the launcher.
 
 ## Bitcoin Core
 
@@ -152,7 +152,7 @@ Then open http://localhost:3002/ and login with an empty username and your `supe
 
 ```bash
 # Install dependencies
-sudo apt-get install -y python3-setuptools python3-pyqt5 python3-pip &&
+sudo apt install -y python3-setuptools python3-pyqt5 python3-pip &&
 
 # Create dir for installation files
 mkdir ~/electrum-installation && cd ~/electrum-installation &&
@@ -332,7 +332,7 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 ## SSH access
 ```bash
 sudo ufw allow ssh &&
-sudo apt-get install -y openssh-server &&
+sudo apt install -y openssh-server &&
 
 # disable root login, disable password auth
 sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
