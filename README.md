@@ -63,7 +63,7 @@ tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
 sudo cp bitcoin-0.17.1/bin/* /usr/bin &&
 
 # Cleanup installation files
-rm -rf ~/bitcoin-installation
+rm -rf ~/bitcoin-installation && cd ~
 ```
 
 <!--
@@ -172,7 +172,10 @@ tar xvf Electrum-3.3.2.tar.gz && cd Electrum-3.3.2 &&
 
 # Install system-wide (requires sudo password)
 sudo python3 -m pip install .[fast] &&
-sudo python3 setup.py install
+sudo python3 setup.py install &&
+
+# Cleanup installation files
+rm -rf ~/electrum-installation && cd ~
 ```
 
 ### Configuring
@@ -314,7 +317,7 @@ grep spark-wallet-0.2.3-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 npm install -g spark-wallet-0.2.3-npm.tgz &&
 
 # Cleanup installation files
-rm -rf ~/spark-installation
+rm -rf ~/spark-installation && cd ~
 ```
 
 ### Running
