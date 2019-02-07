@@ -1,0 +1,42 @@
+[Unit]
+Description=Electrum Personal Server
+After=bitcoind.service
+Requires=bitcoind.service
+
+[Service]
+ExecStart=/usr/local/bin/electrum-personal-server /home/bitcoin/eps/eps.cfg
+# wait a bit for bitcoind
+ExecStartPre=/bin/sleep 60
+
+RuntimeDirectory=eps
+PIDFile=/run/eps/eps.pid
+User=bitcoin
+Group=bitcoin
+
+Type=simple
+KillMode=process
+Restart=always
+RestartSec=60
+
+# Hardening measures
+####################
+
+# Provide a private /tmp and /var/tmp.
+PrivateTmp=true
+
+# Mount /usr, /boot/ and /etc read-only for the process.
+ProtectSystem=full
+
+# Disallow the process and all of its children to gain
+# new privileges through execve().
+NoNewPrivileges=true
+
+# Use a new /dev namespace only populated with API pseudo devices
+# such as /dev/null, /dev/zero and /dev/random.
+PrivateDevices=true
+
+# Deny the creation of writable and executable memory mappings.
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target
