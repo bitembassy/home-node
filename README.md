@@ -390,3 +390,9 @@ Then restart with: `sudo service tor restart`
 
 To get your `.onion` hostname: `sudo cat /var/lib/tor/hidden_service/hostname`
 
+Your onion server exposes the following services:
+
+- Port `50002`: Electrum Personal Server
+- Port `9737`: Spark Wallet
+- Port `3002`: btc-rpc-explorer
+- Port `22`: SSH server
