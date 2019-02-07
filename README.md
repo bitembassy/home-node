@@ -141,7 +141,7 @@ npm install -g
 
 ### Running
 ```bash
-btc-rpc-explorer --login superSecretPassword
+btc-rpc-explorer --basic-auth-password superSecretPassword
 ```
 
 Then open http://localhost:3002/ and login with an empty username and your `superSecretPassword`.
