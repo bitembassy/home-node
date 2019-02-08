@@ -4,7 +4,7 @@ After=bitcoind.service
 Requires=bitcoind.service
 
 [Service]
-#Environment=BTCEXP_BASIC_AUTH_PASSWORD=mySuperSecretPassword
+EnvironmentFile=-/home/satoshi/btc-rpc-explorer.conf
 ExecStart=/home/satoshi/.npm-global/bin/btc-rpc-explorer
 
 RuntimeDirectory=btc-rpc-explorer

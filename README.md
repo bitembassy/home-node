@@ -348,6 +348,8 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 
 ### Stage 1: Bitcoin, EPS, btc-rpc-explorer
 
+To set a password for btc-rpc-explorer: create `~/btc-rpc-explorer.conf`, add `BASIC_AUTH_PASSWORD=<password>`.
+
 ```bash
 # Download home-node repo
 git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node &&
