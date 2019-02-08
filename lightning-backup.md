@@ -1,10 +1,10 @@
-## Backup your hsm_secret
+## Backup hsm_secret
 The `~/.lightning/hsm_secret` file holds keys required to accsses funds. Make sure you keep a secure copy of it. Unlike the database a one-time backup is enough. 
 
 ## Backup the c-lightning database
 The c-lightning database should be backed up regulary as it might be required in order to recover funds in case of a data loss.
 
-> Warning: Do not try to restore a database backup yourself! Using an out-of-date database as-is may lead to lost funds. The restore proccess is out of scope here and currently requires an expert help.
+> Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to lost funds. The restore proccess is out of scope here and currently requires an expert help.
 
 ### Create a backup script
 
