@@ -54,10 +54,13 @@ gpg --recv-keys 222B85B0F90BE2D24CFEB93F47484E50656D16C7 &&
 gpg --verify keybase_amd64.deb.sig keybase_amd64.deb &&
 
 # Install system-wide (requires sudo)
-sudo apt install -y ./keybase_amd64.deb
+sudo apt install -y ./keybase_amd64.deb &&
+
+# Cleanup installation files
+rm -rf ~/keybase-installation && cd ~
 ```
 
-Keybase can now be opened from the lauancher.
+The Keybase app can now be opened from the launcher.
 
 ### Login and add this computer as a new device
 You may login using the UI (run Keybase from the launcher) or using the command-line.
