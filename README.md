@@ -1,3 +1,18 @@
+# Setting up a full Bitcoin Lightning node and wallets
+### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
+* [Security hardenings / Tor](https://github.com/bitembassy/home-node#security) 
+* [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
+* [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
+* [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
+* [Electrum Personal Server](https://github.com/bitembassy/home-node#electrum-personal-server)
+* [Lightning routing node (c-lightning)](https://github.com/bitembassy/home-node#c-lightning)
+* [Lightning backup script](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md)
+* [Spark Lightning wallet](https://github.com/bitembassy/home-node#spark-wallet)
+* [Startup services](https://github.com/bitembassy/home-node#startup-services)
+* [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node#tor-hidden-services)
+
+> Note: a dedicated, always-online computer and a fresh Ubuntu install are recommended. Some of the settings may interfere with existing software.
+
 ## Updates
 ```bash
 # Fetch the list of available updates, upgrade current
@@ -302,8 +317,6 @@ There are two important files to backup:
 `~/.lightning/lightningd.sqlite3` must be backed up regulary. 
 
 Instrutctions for setting up backups [are available here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md), including optional encrtypted cloud backups to Keybase.
-
-To configure encrypted cloud backups with Keybase, [follow the instructions here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md).
 
 ## Spark Wallet
 
