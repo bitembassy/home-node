@@ -1,13 +1,46 @@
 ## Backup the c-lightning database
+The c-lightning database should be backed up regulary as it might be required in order to recover funds in case of a data loss.
 
+> Note: Do not try to restore a database backup yourself! Using an out-of-date database as-is may lead to lost funds. The restore proccess is out of scope here and currently requires an expert help.
+
+### Create a backup script
+
+Install sqlite
 ```bash
 sudo apt install -y sqlite3
 ```
+Create and edit the backup script file:
+```
+gedit ~/.lightning/database-backup
+```
+Paste the following, choose your `[DESTINATION DIR]` and save. 
 
-TODO: backup script
+```bash
+#!/bin/bash
+sqlite3 ~/.lightning/lightningd.sqlite3 ".backup ~/.lightning/lightningd.sqlite3.backup"
+sqlite3 ~/.lightning/lightningd.sqlite3.backup "VACUUM;"
+# Replace [DESTINATION DIR] with yours
+mv -f ~/.lightning/lightningd.sqlite3.backup [DESTINATION DIR]/lightningd.sqlite3.backup
+```
 
-## Backup the c-lightning database with Keybase
-The c-lightning database should be backed up on a regular basis so channels and their states can be restored in case of a data loss. Note: we are using Keybase (which is relatively new) for encrypted cloud backups. Make sure you feel comfortable with that and begin by installing the [app on your phone](https://keybase.io/download) and creating an account.
+> Note: You probably want to use at least a different media for the destination. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/encrypted-cloud-backup-with-keybase) for an example of such.
+
+Make the script executable:
+```
+chmod +x ~/.lightning/database-backup
+```
+### Set an hourly cronjob to run the script
+Open crontab editor with:
+```
+crontab -e
+```
+Add the following line at the bottom and save.
+```
+@ hourly ~/.lightning/database-backup
+```
+
+## Encrypted cloud backup with Keybase
+Note: we are using Keybase (which is relatively new) for encrypted cloud backups. Make sure you feel comfortable with that and you may begin by installing the [app on your phone / laptop](https://keybase.io/download) and creating an account. This will make it easier to login the node by scanning a QR.
 
 ### Install Keybase
 ```
@@ -30,34 +63,30 @@ sudo apt install -y ./keybase_amd64.deb
 
 Keybase can now be opened from the lauancher.
 
-### Login
+### Login and add this computer as a new device
+You may login using the UI (run Keybase from the launcher) or using the command-line.
 Assuming you already have the app installed on your phone and an account configured:
-press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
+
+Using the UI, press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
+
+Or using the command-line: 
+```
+keybase login
+```
+And follow similar steps to get the pairing QR in the terminal.
 
 On your phone, open the Keybase app, in the the menu select Devices, select Add New Computer and scan the QR.
 
 If you dont have an account on another device, you may create a new one insted of login.
 
-### Move Database to Keybase Backup Directory
+### Set Keybase `private` folder as the backup destination
 
-Stop c-lightning:
-```
-lightning-cli stop
-```
+Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/create-a-backup-script), change `[DESTINATION DIR]` to: /keybase/private/`[YOUR KEYBASE USER NAME]`.
 
-Move database to the Keybase directory and create symbolic link in the original directory:
-Note: you need to replace `[MY KEYBASE USER NAME]` with your user name.
-```
-mv ~/.lightning/lightningd.sqlite3 /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3
-ln -s /keybase/private/[MY KEYBASE USER NAME]/lightningd.sqlite3 ~/.lightning/lightningd.sqlite3 
-```
+Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
-Start c-lightning:
-```
-lightningd
-```
 
-### Backup your hsm_secret
+## Backup your hsm_secret
 The `~/.lightning/hsm_secret` file holds private keys required to accsses funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
 
 Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
