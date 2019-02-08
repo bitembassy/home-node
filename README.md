@@ -303,8 +303,6 @@ There are two important files to backup:
 
 Instrutctions for setting up backups [are available here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md), including optional encrtypted cloud backups to Keybase.
 
-To configure encrypted cloud backups with Keybase, [follow the instructions here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md).
-
 ## Spark Wallet
 
 ### Installing
