@@ -402,6 +402,8 @@ sudo systemctl start spark-wallet && sudo systemctl enable spark-wallet
 - Restart: `sudo systemctl restart <name>`
 - Stop: `sudo systemctl stop <name>`
 - Status: `sudo systemctl status <name>`
+ 
+Services names are: `bitcoind`,`lightningd`,`btc-rpc-explorer`,`eps` and `spark-wallet`
 
 ## LAN access
 ```bash
@@ -409,7 +411,6 @@ sudo ufw allow from 192.168.0.0/24 to any port 50002
 
 # ... TODO ...
 ```
-
 
 ## SSH access (optional)
 
@@ -447,3 +448,5 @@ Your onion server exposes the following services:
 - Port `9737`: Spark Wallet
 - Port `3002`: btc-rpc-explorer
 - Port `22`: SSH server
+
+For example, to access btc-rpc-explorer, open `[your-host-name].onion:3002` on any Tor Browser.
