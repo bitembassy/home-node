@@ -413,9 +413,9 @@ sudo systemctl start spark-wallet && sudo systemctl enable spark-wallet
 Services names are: `bitcoind`,`lightningd`,`btc-rpc-explorer`,`eps` and `spark-wallet`
 
 ## LAN access
-Add a firewall rule to allow access to EPS, Spark, btc-rpc-explorer and SSH from clients on the local network.
+Add a firewall rule to allow access to EPS, Spark, btc-rpc-explorer and SSH from clients on the local network. For example, you may connect to Sparx from your laptop (on the same LAN) with http://192.168.1.3:9737
 
-You will need to find the IP range of your local network. It should look something like `192.168.0.0/24` - in most cases, find your own local IP, change the last cell to `0` and add `/24`. For example, IP `10.10.5.17` means IP range ``10.10.5.0/24``.
+You will need to find the IP range of your local network. It should look something like `192.168.1.0/24` - in most cases, find your own local IP, change the last cell to `0` and add `/24`. For example, IP `10.10.5.17` means IP range ``10.10.5.0/24``.
 
 Then run this command (after changing the sample `[10.10.5.0/24]` to your own range):
 
@@ -426,6 +426,7 @@ You may run the following to print the command above with the IP range included:
 ```
 ip -4  -o -f inet addr show | awk '/scope global dynamic/ {sub(substr($4, 11, 1), "0", $4);  print "To allow LAN access, run:"; print "sudo ufw allow from " $4 " to any port 50002,3002,9737,22 proto tcp"}'
 ```
+> Note: You will want to define a Static DHCP Lease on your router for your node, so the IP won't change and local clients can find it.
 
 ## SSH access (optional)
 
