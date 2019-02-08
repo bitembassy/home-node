@@ -267,7 +267,7 @@ Now is a good time to sit back and wait for all the Bitcoin blocks to download b
 
 Meanwhile you may want to [setup startup services for bitcoind, btc-rpc-explorer and eps](https://github.com/bitembassy/home-node#stage-1-bitcoin-eps-btc-rpc-explorer) and test a restart.
 
-Once the sync is complete, Electrum wallet should connect to EPS (a green circle on the bottom-right) and 
+Once the sync is complete, Electrum wallet should connect to EPS (a green circle on the bottom-right) and we can continue to the Lightning part!
 
 ## c-lightning
 
