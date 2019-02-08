@@ -1,7 +1,7 @@
 ## Backup the c-lightning database
 The c-lightning database should be backed up regulary as it might be required in order to recover funds in case of a data loss.
 
-> Note: Do not try to restore a database backup yourself! Using an out-of-date database as-is may lead to lost funds. The restore proccess is out of scope here and currently requires an expert help.
+> Warning: Do not try to restore a database backup yourself! Using an out-of-date database as-is may lead to lost funds. The restore proccess is out of scope here and currently requires an expert help.
 
 ### Create a backup script
 
@@ -23,7 +23,7 @@ sqlite3 ~/.lightning/lightningd.sqlite3.backup "VACUUM;"
 mv -f ~/.lightning/lightningd.sqlite3.backup [DESTINATION DIR]/lightningd.sqlite3.backup
 ```
 
-> Note: You probably want to use at least a different media for the destination. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/encrypted-cloud-backup-with-keybase) for an example of such.
+> Note: You probably want to use at least a different media for the destination. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
 
 Make the script executable:
 ```
@@ -36,7 +36,7 @@ crontab -e
 ```
 Add the following line at the bottom and save.
 ```
-@ hourly ~/.lightning/database-backup
+@hourly ~/.lightning/database-backup
 ```
 
 ## Encrypted cloud backup with Keybase
@@ -81,7 +81,7 @@ If you dont have an account on another device, you may create a new one insted o
 
 ### Set Keybase `private` folder as the backup destination
 
-Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/create-a-backup-script), change `[DESTINATION DIR]` to: /keybase/private/`[YOUR KEYBASE USER NAME]`.
+Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#create-a-backup-script), change `[DESTINATION DIR]` to: `/keybase/private/[YOUR KEYBASE USER NAME]`.
 
 Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
