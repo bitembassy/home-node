@@ -391,6 +391,13 @@ sudo systemctl start lightningd && sudo systemctl enable lightningd &&
 sudo systemctl start spark-wallet && sudo systemctl enable spark-wallet
 ```
 
+### Controlling services
+
+- Start: `sudo systemctl start <name>`
+- Restart: `sudo systemctl restart <name>`
+- Stop: `sudo systemctl stop <name>`
+- Status: `sudo systemctl status <name>`
+
 ## LAN access
 ```bash
 sudo ufw allow from 192.168.0.0/24 to any port 50002
