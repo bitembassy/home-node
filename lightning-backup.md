@@ -1,3 +1,6 @@
+## Backup your hsm_secret
+The `~/.lightning/hsm_secret` file holds keys required to accsses funds. Make sure you keep a secure copy of it. Unlike the database a one-time backup is enough. 
+
 ## Backup the c-lightning database
 The c-lightning database should be backed up regulary as it might be required in order to recover funds in case of a data loss.
 
@@ -20,7 +23,7 @@ echo "0e09c0de0647fe092edcec5598f50f19f082dc172048b900d7fc531a492855ae $HOME/lig
 You can change the directory backups will be saved to by editing `~/lightning-backup.sh` and changing `BACKUP_DIR`
 (defaults to `~/backups`).
 
-> Note: You probably want to use at least a different media for the destination. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
+> Note: You probably want to use at least a different media for `BACKUP_DIR`. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
 
 ### Set an hourly cronjob to run the script
 Open crontab editor with:
@@ -33,7 +36,7 @@ Add the following line at the bottom and save.
 ```
 
 ## Encrypted cloud backup with Keybase
-Note: we are using Keybase (which is relatively new) for encrypted cloud backups. Make sure you feel comfortable with that and you may begin by installing the [app on your phone / laptop](https://keybase.io/download) and creating an account. This will make it easier to login the node by scanning a QR.
+> Note: we are using Keybase (which is relatively new) for encrypted cloud backups. Make sure you feel comfortable with that. You may begin by installing the [app on your phone / laptop](https://keybase.io/download) and creating an account. This will make it easier to login the node by scanning a QR. You will be asked to write a recovery paper-key. Make sure you have it so you don't lose access to the backups.   
 
 ### Install Keybase
 ```
@@ -62,13 +65,9 @@ Assuming you already have the app installed on your phone and an account configu
 
 Using the UI, press login, enter your Keybase user name, select your phone from the list of existing devices, select a name for this computer. A QR should be displayed. 
 
-Or using the command-line: 
-```
-keybase login
-```
-And follow similar steps to get the pairing QR in the terminal.
+Or using the command-line: `keybase login` and follow similar steps to get the pairing QR in the terminal.
 
-On your phone, open the Keybase app, in the the menu select Devices, select Add New Computer and scan the QR.
+On your phone, open the Keybase app, in the menu select `Devices`, select `Add New Computer` and scan the QR.
 
 If you dont have an account on another device, you may create a new one insted of login.
 
