@@ -415,9 +415,9 @@ Services names are: `bitcoind`,`lightningd`,`btc-rpc-explorer`,`eps` and `spark-
 ## LAN access
 Add a firewall rule to allow access to EPS, Spark, btc-rpc-explorer and SSH from clients on the local network.
 
-You will need to find the IP range of your local network. It should look something like 192.168.0.0/24 - in most cases, find your own local IP, change the last cell to `0` and add `/24`. For example, 10.10.5.17 means 10.10.5.0/24. 
+You will need to find the IP range of your local network. It should look something like `192.168.0.0/24` - in most cases, find your own local IP, change the last cell to `0` and add `/24`. For example, `10.10.5.17` means IP range 10.10.5.0/24. 
 
-Then run this command (after changing the sample [10.10.5.0/24] to your own range):
+Then run this command (after changing the sample `[10.10.5.0/24]` to your own range):
 
 ```bash
 sudo ufw allow from [10.10.5.0/24] to any port 50002,3002,9737,22 proto tcp
