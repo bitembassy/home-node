@@ -1,11 +1,11 @@
-# Setting up a full Bitcoin and Lightning node
+# Setting up a full Bitcoin Lightning node and wallets
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
-* [Security Hardenings / Tor](https://github.com/bitembassy/home-node#security) 
+* [Security hardenings / Tor](https://github.com/bitembassy/home-node#security) 
 * [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
-* [btc-rpc-explorer](https://github.com/bitembassy/home-node#btc-rpc-explorer)
+* [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
 * [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
 * [Electrum Personal Server](https://github.com/bitembassy/home-node#electrum-personal-server)
-* [c-lightning](https://github.com/bitembassy/home-node#c-lightning)
+* [Lightning routing node (c-lightning)](https://github.com/bitembassy/home-node#c-lightning)
 * [Lightning backup script](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md)
 * [Spark Lightning wallet](https://github.com/bitembassy/home-node#spark-wallet)
 * [Startup services](https://github.com/bitembassy/home-node#startup-services)
