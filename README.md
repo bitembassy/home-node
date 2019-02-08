@@ -262,6 +262,13 @@ If you're importing an existing wallet with historical transactions, a rescan wi
 
 > Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
 
+## Take a break to sync
+Now is a good time to sit back and wait for all the Bitcoin blocks to download before continuing to the Lightning part. It will take quite a while. You can follow the progress on the terminal with `bitcoin-cli getblockchaininfo` or with btc-rpc-explorer on http://localhost:3002/node-status
+
+Meanwhile you may want to [setup startup services for bitcoind, btc-rpc-explorer and eps](https://github.com/bitembassy/home-node#stage-1-bitcoin-eps-btc-rpc-explorer) and test a restart.
+
+Once the sync is complete, Electrum wallet should connect to EPS (a green circle on the bottom-right) and 
+
 ## c-lightning
 
 ### Installing
