@@ -157,8 +157,13 @@ bitcoin-cli getblockchaininfo
 ### Installing
 ```bash
 # Download source
-git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer &&
-cd ~/btc-rpc-explorer &&
+git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer && cd ~/btc-rpc-explorer &&
+
+# Add signing key
+gpg --recv-keys F579929B39B119CC7B0BB71FB326ACF51F317B69 &&
+# Verify signature - should see "Good signature from Dan Janosik <dan@47.io>"
+git verify-commit HEAD &&
+
 # Install user-wide
 npm install -g
 ```
