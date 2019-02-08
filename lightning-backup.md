@@ -9,26 +9,19 @@ Install sqlite
 ```bash
 sudo apt install -y sqlite3
 ```
-Create and edit the backup script file:
-```
-gedit ~/.lightning/database-backup
-```
-Paste the following, choose your `[DESTINATION DIR]` and save. 
+
+Fetch the `lightning-backup.sh` script:
 
 ```bash
-#!/bin/bash
-sqlite3 ~/.lightning/lightningd.sqlite3 ".backup ~/.lightning/lightningd.sqlite3.backup"
-sqlite3 ~/.lightning/lightningd.sqlite3.backup "VACUUM;"
-# Replace [DESTINATION DIR] with yours
-mv -f ~/.lightning/lightningd.sqlite3.backup [DESTINATION DIR]/lightningd.sqlite3.backup
+wget -O ~/lightning-backup.sh https://raw.githubusercontent.com/bitembassy/home-node/master/scripts/lightning-backup.sh &&
+echo "0e09c0de0647fe092edcec5598f50f19f082dc172048b900d7fc531a492855ae $HOME/lightning-backup.sh" | sha256sum -c
 ```
+
+You can change the directory backups will be saved to by editing `~/lightning-backup.sh` and changing `BACKUP_DIR`
+(defaults to `~/backups`).
 
 > Note: You probably want to use at least a different media for the destination. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
 
-Make the script executable:
-```
-chmod +x ~/.lightning/database-backup
-```
 ### Set an hourly cronjob to run the script
 Open crontab editor with:
 ```
@@ -36,7 +29,7 @@ crontab -e
 ```
 Add the following line at the bottom and save.
 ```
-@hourly ~/.lightning/database-backup
+@hourly ~/lightning-backup.sh
 ```
 
 ## Encrypted cloud backup with Keybase
@@ -81,7 +74,7 @@ If you dont have an account on another device, you may create a new one insted o
 
 ### Set Keybase `private` folder as the backup destination
 
-Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#create-a-backup-script), change `[DESTINATION DIR]` to: `/keybase/private/[YOUR KEYBASE USER NAME]`.
+Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#create-a-backup-script), change `BACKUP_DIR` to: `/keybase/private/[YOUR KEYBASE USER NAME]`.
 
 Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
