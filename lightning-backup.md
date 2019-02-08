@@ -78,7 +78,7 @@ Edit the [script from previous step](https://github.com/bitembassy/home-node/blo
 Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
 
-## Backup your hsm_secret
+### Backup your hsm_secret
 The `~/.lightning/hsm_secret` file holds private keys required to accsses funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
 
 Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
