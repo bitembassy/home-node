@@ -9,6 +9,7 @@
 * [Lightning backup script](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md)
 * [Spark Lightning wallet](https://github.com/bitembassy/home-node#spark-wallet)
 * [Startup services](https://github.com/bitembassy/home-node#startup-services)
+* [LAN access](https://github.com/bitembassy/home-node#lan-access)
 * [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node#tor-hidden-services)
 
 > Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
@@ -256,8 +257,6 @@ gedit ~/eps/eps.cfg
 
 Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
 
-Under `[electrum-server]`, change `host=127.0.0.1` to `host=0.0.0.0`.
-
 Save `eps.cfg`
 
 ### Running
@@ -425,24 +424,51 @@ sudo systemctl start spark-wallet && sudo systemctl enable spark-wallet
 - Restart: `sudo systemctl restart <name>`
 - Stop: `sudo systemctl stop <name>`
 - Status: `sudo systemctl status <name>`
- 
-Services names are: `bitcoind`,`lightningd`,`btc-rpc-explorer`,`eps` and `spark-wallet`
+
+The services names are: `bitcoind`,`lightningd`,`btc-rpc-explorer`,`eps` and `spark-wallet`
 
 ## LAN access
-Add a firewall rule to allow access to EPS, Spark, btc-rpc-explorer and SSH from clients on the local network. For example, you may connect to Sparx from your laptop (on the same LAN) with http://192.168.1.3:9737
 
-You will need to find the IP range of your local network. It should look something like `192.168.1.0/24` - in most cases, find your own local IP, change the last cell to `0` and add `/24`. For example, IP `10.10.5.17` means IP range ``10.10.5.0/24``.
+To connect to EPS, Spark and btc-rpc-explorer over the local network
+you will need to configure the services to bind on `0.0.0.0` and add a firewall rule allowing local connections.
 
-Then run this command (after changing the sample `[10.10.5.0/24]` to your own range):
+### Configuring the services
+
+- To configure EPS: open `~/eps/eps.cfg` and under `[electrum-server]` change `host=127.0.0.1` to `host=0.0.0.0`.
+
+- To configure Spark: open `~/.spark-wallet/config` and add a new line with `host=0.0.0.0`.
+
+- To configure btc-rpc-explorer: open `~/.config/btc-rpc-explorer.env` and add a new line with `BTCEXP_HOST=0.0.0.0`.
+
+You can configure all three using the following commands:
 
 ```bash
-sudo ufw allow from [10.10.5.0/24] to any port 50002,3002,9737,22 proto tcp
+gawk -i inplace 'in_section&&/^host =/{$3="0.0.0.0"} /[electrum-server]/{in_section=1} 1' ~/eps/eps.cfg &&
+mkdir -p ~/.spark-wallet && echo host=0.0.0.0 | tee -a ~/.spark-wallet/config &&
+echo BTCEPX_HOST=0.0.0.0 | tee -a ~/.config/btc-rpc-explorer.env
 ```
-You may run the following to print the command above with the IP range included:
+
+Restart the services for the changes to take effect: `sudo systemctl restart eps && sudo systemctl restart spark-wallet && sudo systemctl btc-rpc-explorer`
+
+### Firewall rules
+
+You will need to add a firewall rule allowing access from your local network IP address range.
+For example, if your IP range is `192.168.1.x`, run:
+
+```bash
+sudo ufw allow from 192.168.1.0/24 to any port 50002,3002,9737,22 proto tcp
 ```
-ip -4  -o -f inet addr show | awk '/scope global dynamic/ {sub(substr($4, 11, 1), "0", $4);  print "To allow LAN access, run:"; print "sudo ufw allow from " $4 " to any port 50002,3002,9737,22 proto tcp"}'
+
+The following script can be used to try and automatically detect your network IP range and add a
+matching firewall rule:
+
+```bash
+ips=($(ip -4 -o -f inet addr show | grep 'scope global dynamic' | tr -s ' ' | cut -d' ' -f4)) &&
+if [ ${#ips[@]} -ne 1 ]; then echo "multiple networks found, cannot determine IP address"; \
+else sudo ufw allow from ${ips[0]} to any port 50002,3002,9737,22 proto tcp; fi
 ```
-> Note: You will want to define a Static DHCP Lease on your router for your node, so the IP won't change and local clients can find it.
+
+> Note: You may want to define a Static DHCP Lease on your router for your node, so the IP won't change and local clients can find it.
 
 ## SSH access (optional)
 
