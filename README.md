@@ -178,12 +178,14 @@ npm install -g
 
 ### Configuring
 
-The default configuration options should work out-of-the-box.
-You may set custom config options in `~/.config/btc-rpc-explorer.env`.
+Create and edit `~/.config/btc-rpc-explorer.env`, add the following line to enable password protection:
 
-To enable password protection (highly recommended!), add a line with `BTCEXP_BASIC_AUTH_PASSWORD=superSecretPassword`.
+```bash
+BTCEXP_BASIC_AUTH_PASSWORD=mySecretPassword
 
-Refer to the [btc-rpc-explorer docs](https://github.com/janoside/btc-rpc-explorer) for the list of options.
+```
+
+Refer to the [btc-rpc-explorer docs](https://github.com/janoside/btc-rpc-explorer) for the full list of options.
 
 ### Running
 ```bash
@@ -378,7 +380,7 @@ You may set custom config options in `~/.spark-wallet/config`.
 
 To set custom login credentials instead of the randomly generated ones, add a line with `login=myUsername:myPassword`.
 
-Refer to the [spark docs](https://github.com/shesek/spark-wallet) for the list of options.
+Refer to the [spark docs](https://github.com/shesek/spark-wallet) for the full list of options.
 
 ### Running
 ```bash
