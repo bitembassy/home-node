@@ -18,7 +18,8 @@ Fetch the `lightning-backup.sh` script:
 ```bash
 wget -O ~/unverified-lightning-backup.sh https://raw.githubusercontent.com/bitembassy/home-node/master/scripts/lightning-backup.sh &&
 echo "0e09c0de0647fe092edcec5598f50f19f082dc172048b900d7fc531a492855ae $HOME/unverified-lightning-backup.sh" | sha256sum -c &&
-mv ~/unverified-lightning-backup.sh ~/lightning-backup.sh
+mv ~/unverified-lightning-backup.sh ~/lightning-backup.sh &&
+chmod +x ~/lightning-backup.sh
 ```
 
 You can change the directory backups will be saved to by editing `~/lightning-backup.sh` and changing `BACKUP_DIR`
