@@ -1,4 +1,4 @@
-# Setting up a full Bitcoin Lightning node and wallets
+# Setting up a full Bitcoin Lightning node and wallet
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
 * [Security hardenings / Tor](https://github.com/bitembassy/home-node#security) 
 * [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
