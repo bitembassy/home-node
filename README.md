@@ -11,7 +11,7 @@
 * [Startup services](https://github.com/bitembassy/home-node#startup-services)
 * [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node#tor-hidden-services)
 
-> Note: a dedicated, always-online computer and a fresh Ubuntu install are recommended. Some of the settings may interfere with existing software.
+> Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
 
 ## Updates
 ```bash
