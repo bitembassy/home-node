@@ -111,7 +111,7 @@ chmod +x rpcauth.py
 Create and edit `bitcoin.conf`
 
 ```bash
-mkdir ~/.bitcoin &&
+mkdir -p ~/.bitcoin &&
 gedit ~/.bitcoin/bitcoin.conf
 ```
 Add the following and save:
@@ -316,7 +316,7 @@ sudo make install
 Create and edit `~/.lightning/config`
 
 ```bash
-mkdir ~/.lightning &&
+mkdir -p ~/.lightning &&
 gedit ~/.lightning/config
 ```
 Add the following and save:
