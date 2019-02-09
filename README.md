@@ -328,7 +328,7 @@ There are two important files to backup:
 `~/.lightning/hsm_secret` must be backed up once.
 `~/.lightning/lightningd.sqlite3` must be backed up regulary. 
 
-Instructions for setting up backups [are available here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md), including optional encrtypted cloud backups to Keybase.
+Instructions for setting up backups [are available here](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md), including optional encrypted cloud backups to Keybase.
 
 ## Spark Wallet
 
