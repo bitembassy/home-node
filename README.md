@@ -448,7 +448,11 @@ mkdir -p ~/.spark-wallet && echo host=0.0.0.0 | tee -a ~/.spark-wallet/config &&
 echo BTCEPX_HOST=0.0.0.0 | tee -a ~/.config/btc-rpc-explorer.env
 ```
 
-Restart the services for the changes to take effect: `sudo systemctl restart eps && sudo systemctl restart spark-wallet && sudo systemctl btc-rpc-explorer`
+Restart the services for the changes to take effect:
+
+```bash
+sudo systemctl restart eps && sudo systemctl restart spark-wallet && sudo systemctl btc-rpc-explorer
+```
 
 ### Firewall rules
 
@@ -465,7 +469,7 @@ matching firewall rule:
 ```bash
 ips=($(ip -4 -o -f inet addr show | grep 'scope global dynamic' | tr -s ' ' | cut -d' ' -f4)) &&
 if [ ${#ips[@]} -ne 1 ]; then echo "multiple networks found, cannot determine IP address"; \
-else sudo ufw allow from ${ips[0]} to any port 50002,3002,9737,22 proto tcp; fi
+else (set -x; sudo ufw allow from ${ips[0]} to any port 50002,3002,9737,22 proto tcp); fi
 ```
 
 > Note: You may want to define a Static DHCP Lease on your router for your node, so the IP won't change and local clients can find it.
