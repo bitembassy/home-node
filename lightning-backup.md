@@ -1,10 +1,11 @@
 ## Backup hsm_secret
-The `~/.lightning/hsm_secret` file holds keys required to accsses funds. Make sure you keep a secure copy of it. Unlike the database a one-time backup is enough. 
+The `~/.lightning/hsm_secret` file holds keys required to access funds.
+Make sure you keep a secure copy of it. Unlike the database a one-time backup is enough.
 
 ## Backup the c-lightning database
-The c-lightning database should be backed up regulary as it might be required in order to recover funds in case of a data loss.
+The c-lightning database should be backed up regularly as it might be required in order to recover funds in case of a data loss.
 
-> Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to lost of funds. The restore proccess is out of scope here and currently requires an expert help.
+> Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to lost of funds. The restore process is out of scope here and currently requires an expert help.
 
 ### Create a backup script
 
@@ -25,7 +26,7 @@ chmod +x ~/lightning-backup.sh
 You can change the directory backups will be saved to by editing `~/lightning-backup.sh` and changing `BACKUP_DIR`
 (defaults to `~/backups`).
 
-> Note: You probably want to use at least a different media for `BACKUP_DIR`. For cloud backups use encryption as the database content is sensetive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
+> Note: You probably want to use at least a different media for `BACKUP_DIR`. For cloud backups use encryption as the database content is sensitive. See our [Keybase backup instructions](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#encrypted-cloud-backup-with-keybase) for an example of such.
 
 ### Set an hourly cronjob to run the script
 Open crontab editor with:
@@ -74,7 +75,7 @@ Or using the command-line: `keybase login` and follow similar steps to get the p
 
 On your phone, open the Keybase app, in the menu select `Devices`, select `Add New Computer` and scan the QR.
 
-If you dont have an account on another device, you may create a new one insted of login.
+If you don't have an account on another device, you may create a new one instead of login.
 
 ### Set Keybase `private` folder as the backup destination
 
@@ -84,7 +85,7 @@ Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
 
 ### Backup your hsm_secret
-The `~/.lightning/hsm_secret` file holds private keys required to accsses funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
+The `~/.lightning/hsm_secret` file holds private keys required to access funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
 
 Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
 
