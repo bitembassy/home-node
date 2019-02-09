@@ -44,6 +44,13 @@ mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
 echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.profile
 ```
 
+At the time of writing, the default gpg keyservers appears to be unavailable.
+They can be changed to Ubuntu's keyservers with:
+
+```bash
+echo 'keyserver hkp://keyserver.ubuntu.com' | tee -a ~/.gnupg/gpg.conf
+```
+
 ## Tor
 
 ### Installing
