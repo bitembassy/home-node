@@ -440,15 +440,18 @@ ip -4  -o -f inet addr show | awk '/scope global dynamic/ {sub(substr($4, 11, 1)
 ## SSH access (optional)
 
 ```bash
-sudo ufw allow ssh &&
 sudo apt install -y openssh-server &&
 
 # disable root login, disable password auth
 sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config &&
 sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config &&
 sudo service ssh reload
+
 # TODO: set nonstandard SSH port? instructions for setting up keys?
 ```
+
+To ensure SSH access availability, you may want to accept SSH connections from all sources with `sudo ufw allow ssh`.
+This is less secure than white-listing source IPs, but may be considered acceptable for the SSH daemon.
 
 ## Tor Hidden Services
 
