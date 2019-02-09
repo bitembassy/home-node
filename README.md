@@ -218,13 +218,16 @@ gpg --verify Electrum-3.3.2.tar.gz.asc Electrum-3.3.2.tar.gz &&
 # Unpack
 tar xvf Electrum-3.3.2.tar.gz && cd Electrum-3.3.2 &&
 
+# Install dependencies
+pip3 install .[fast] &&
 # Install system-wide (requires sudo password)
-sudo python3 -m pip install .[fast] &&
-sudo python3 setup.py install &&
+sudo ./setup.py install &&
 
 # Cleanup installation files
-cd ~ && rm -rf ~/electrum-installation
+cd ~ && sudo rm -rf ~/electrum-installation
 ```
+
+TODO: ensure `pip3 install .` works without sudo (and remove this comment)
 
 ### Configuring
 ```
