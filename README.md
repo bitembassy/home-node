@@ -465,7 +465,7 @@ echo BTCEPX_HOST=0.0.0.0 | tee -a ~/.config/btc-rpc-explorer.env
 Restart the services for the changes to take effect:
 
 ```bash
-sudo systemctl restart eps && sudo systemctl restart spark-wallet && sudo systemctl btc-rpc-explorer
+sudo systemctl restart eps && sudo systemctl restart spark-wallet && sudo systemctl restart btc-rpc-explorer
 ```
 
 ### Firewall rules
