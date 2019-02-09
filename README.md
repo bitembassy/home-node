@@ -356,6 +356,15 @@ npm install -g spark-wallet-0.2.3-npm.tgz &&
 rm -rf ~/spark-installation && cd ~
 ```
 
+### Configuring
+
+The default configuration options should work out-of-the-box.
+You may set custom config options in `~/.spark-wallet/config`.
+
+To set custom login credentials instead of the randomly generated ones, add a line with `login=myUsername:myPassword`.
+
+Refer to the [spark docs](https://github.com/shesek/spark-wallet) for the list of options.
+
 ### Running
 ```bash
 spark-wallet --pairing-url
