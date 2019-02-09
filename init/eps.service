@@ -4,7 +4,7 @@ After=bitcoind.service
 Requires=bitcoind.service
 
 [Service]
-ExecStart=/usr/local/bin/electrum-personal-server /home/satoshi/eps/eps.cfg
+ExecStart=/usr/local/bin/electrum-personal-server /home/satoshi/eps/config.cfg
 
 RuntimeDirectory=eps
 PIDFile=/run/eps/eps.pid

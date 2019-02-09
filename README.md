@@ -263,22 +263,22 @@ sudo pip3 install .
 
 Copy the sample configuration file as `eps.cnf` and edit it:
 ```
-cp ~/eps/config.cfg_sample ~/eps/eps.cfg &&
-gedit ~/eps/eps.cfg
+cp ~/eps/config.cfg_sample ~/eps/config.cfg &&
+gedit ~/eps/config.cfg
 ```
 
-Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `eps.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
+Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `config.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
 
-Save `eps.cfg`
+Save `config.cfg`
 
 ### Running
 ```bash
-electrum-personal-server ~/eps/eps.cfg
+electrum-personal-server ~/eps/config.cfg
 ```
 
 When running for the first time, EPS will import the addresses and quit. You should start it again.
 
-If you're importing an existing wallet with historical transactions, a rescan will be required: `electrum-personal-server-rescan ~/eps/eps.cfg`
+If you're importing an existing wallet with historical transactions, a rescan will be required: `electrum-personal-server-rescan ~/eps/config.cfg`
 
 > Note: Electrum Wallet will only connect to Electrum Personal Server once bitcoind is synced.
 
@@ -446,7 +446,7 @@ you will need to configure the services to bind on `0.0.0.0` and add a firewall 
 
 ### Configuring the services
 
-- To configure EPS: open `~/eps/eps.cfg` and under `[electrum-server]` change `host=127.0.0.1` to `host=0.0.0.0`.
+- To configure EPS: open `~/eps/config.cfg` and under `[electrum-server]` change `host=127.0.0.1` to `host=0.0.0.0`.
 
 - To configure Spark: open `~/.spark-wallet/config` and add a new line with `host=0.0.0.0`.
 
@@ -455,7 +455,7 @@ you will need to configure the services to bind on `0.0.0.0` and add a firewall 
 You can configure all three using the following commands:
 
 ```bash
-gawk -i inplace 'in_section&&/^host =/{$3="0.0.0.0"} /[electrum-server]/{in_section=1} 1' ~/eps/eps.cfg &&
+gawk -i inplace 'in_section&&/^host =/{$3="0.0.0.0"} /[electrum-server]/{in_section=1} 1' ~/eps/config.cfg &&
 mkdir -p ~/.spark-wallet && echo host=0.0.0.0 | tee -a ~/.spark-wallet/config &&
 echo BTCEPX_HOST=0.0.0.0 | tee -a ~/.config/btc-rpc-explorer.env
 ```
