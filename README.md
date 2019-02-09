@@ -457,7 +457,7 @@ you will need to configure the services to bind on `0.0.0.0` and add a firewall 
 You can configure all three using the following commands:
 
 ```bash
-gawk -i inplace 'in_section&&/^host =/{$3="0.0.0.0"} /[electrum-server]/{in_section=1} 1' ~/eps/config.cfg &&
+awk 'in_section&&/^host =/{$3="0.0.0.0"} /[electrum-server]/{in_section=1} 1' ~/eps/config.cfg > ~/eps/config.cfg.new && mv ~/eps/config.cfg.new ~/eps/config.cfg &&
 mkdir -p ~/.spark-wallet && echo host=0.0.0.0 | tee -a ~/.spark-wallet/config &&
 echo BTCEPX_HOST=0.0.0.0 | tee -a ~/.config/btc-rpc-explorer.env
 ```
