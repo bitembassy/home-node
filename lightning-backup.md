@@ -1,9 +1,9 @@
 ## Backup hsm_secret
-The `~/.lightning/hsm_secret` file holds keys required to access funds.
+The `~/.lightning/hsm_secret` file holds keys required to access on-chain funds.
 Make sure you keep a secure copy of it. Unlike the database a one-time backup is enough.
 
 ## Backup the c-lightning database
-The c-lightning database should be backed up regularly as it might be required in order to recover funds in case of a data loss.
+The c-lightning database should be backed up regularly as an up-to-date copy of it is required in order to recover channel funds in case of a data loss.
 
 > Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to lost of funds. The restore process is out of scope here and currently requires an expert help.
 
@@ -79,18 +79,26 @@ If you don't have an account on another device, you may create a new one instead
 
 ### Set Keybase `private` folder as the backup destination
 
-Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#create-a-backup-script), change `BACKUP_DIR` to: `/keybase/private/[YOUR KEYBASE USER NAME]`.
+Create a directory for your lightning backups:
+
+```bash
+mkdir /keybase/private/[YOUR KEYBASE USER NAME]/lightning-backup
+```
+
+Edit the [script from previous step](https://github.com/bitembassy/home-node/blob/master/lightning-backup.md#create-a-backup-script),
+change `BACKUP_DIR` to: `/keybase/private/[YOUR KEYBASE USER NAME]/lightning-backup`.
 
 Note: don't forget to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
 
-### Backup your hsm_secret
-The `~/.lightning/hsm_secret` file holds private keys required to access funds. It must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step. 
+### Backup hsm_secret to Keybase
+
+The `~/.lightning/hsm_secret` file must be backed up, but just once. If you have a safer way to keep a copy, you may skip this step.
 
 Otherwise, run the following so it's backed up to your `private` Keybase folder together with the lightning database.
 
 Note: you need to replace `[YOUR KEYBASE USER NAME]` with your user name.
 
 ```
-cp ~/.lightning/hsm_secret /keybase/private/[YOUR KEYBASE USER NAME]/hsm_secret
+cp ~/.lightning/hsm_secret /keybase/private/[YOUR KEYBASE USER NAME]/lightning-backup/hsm_secret
 ```
