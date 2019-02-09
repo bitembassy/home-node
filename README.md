@@ -410,7 +410,7 @@ git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node 
 git verify-commit HEAD &&
 
 # Copy service init files
-cp init/{bitcoind,eps,btc-rpc-explorer}.service /etc/systemd/system/ &&
+sudo cp init/{bitcoind,eps,btc-rpc-explorer}.service /etc/systemd/system/ &&
 
 # Reload systemd, enable services, start them
 sudo systemctl daemon-reload &&
@@ -419,10 +419,12 @@ sudo systemctl start eps && sudo systemctl enable eps &&
 sudo systemctl start btc-rpc-explorer && sudo systemctl enable btc-rpc-explorer
 ```
 
+> Note: If you already have the services running from the terminal, stop them before starting the systemd service.
+
 ### Stage 2: Lightning, Spark
 ```bash
 # Copy service init files
-cp ~/home-node/init/{lightningd,spark-wallet}.service /etc/systemd/system/ &&
+sudo cp ~/home-node/init/{lightningd,spark-wallet}.service /etc/systemd/system/ &&
 
 # Reload systemd, enable services, start them
 sudo systemctl daemon-reload &&
