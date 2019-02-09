@@ -168,9 +168,18 @@ git verify-commit HEAD &&
 npm install -g
 ```
 
+### Configuring
+
+The default configuration options should work out-of-the-box.
+You may set custom config options in `~/.config/btc-rpc-explorer.env`.
+
+To enable password protection (highly recommended!), add a line with `BTCEXP_BASIC_AUTH_PASSWORD=superSecretPassword`.
+
+Refer to the [btc-rpc-explorer docs](https://github.com/janoside/btc-rpc-explorer) for the list of options.
+
 ### Running
 ```bash
-btc-rpc-explorer --basic-auth-password superSecretPassword
+btc-rpc-explorer
 ```
 
 Then open http://localhost:3002/ and login with an empty username and your `superSecretPassword`.
@@ -381,8 +390,6 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 ## Startup services
 
 ### Stage 1: Bitcoin, EPS, btc-rpc-explorer
-
-To set a password for btc-rpc-explorer: create `~/btc-rpc-explorer.conf`, add `BASIC_AUTH_PASSWORD=<password>`.
 
 ```bash
 # Download home-node repo
