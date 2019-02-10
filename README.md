@@ -409,6 +409,8 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 
 ## Startup services
 
+> Note: If you already have the services running from the terminal, stop them before starting the systemd service.
+
 ### Stage 1: Bitcoin, EPS, btc-rpc-explorer
 
 ```bash
@@ -427,8 +429,6 @@ sudo systemctl start bitcoind && sudo systemctl enable bitcoind &&
 sudo systemctl start eps && sudo systemctl enable eps &&
 sudo systemctl start btc-rpc-explorer && sudo systemctl enable btc-rpc-explorer
 ```
-
-> Note: If you already have the services running from the terminal, stop them before starting the systemd service.
 
 ### Stage 2: Lightning, Spark
 ```bash
