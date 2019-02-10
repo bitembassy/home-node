@@ -55,9 +55,17 @@ They can be changed to Ubuntu's keyservers with:
 echo 'keyserver hkp://keyserver.ubuntu.com' | tee -a ~/.gnupg/gpg.conf
 ```
 
-## Tor
+### Tor
 
-### Installing
+To install Tor as a system service:
+
+```bash
+sudo apt install -y tor
+```
+
+Tor will automatically start running as a background service.
+
+To install the Tor Browser Bundle:
 
 ```bash
 sudo apt install -y tor torbrowser-launcher &&
@@ -66,13 +74,8 @@ sudo apt install -y tor torbrowser-launcher &&
 sudo update-locale LANG=en_US.UTF-8 && source /etc/default/locale
 ```
 
-### Running
-
-```bash
-torbrowser-launcher
-```
-
-The tor browser can also be opened from the launcher (due to the locale bug, this only works after a logout & login).
+You can start the tor browser with `torbrowser-launcher` from the command line,
+or using the launcher  (due to the locale bug, this only works after a logout & login)
 
 ## Bitcoin Core
 
