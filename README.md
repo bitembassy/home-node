@@ -7,6 +7,7 @@
   * [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
   * [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
   * [Electrum Personal Server](https://github.com/bitembassy/home-node#electrum-personal-server)
+  * -- [Take a break to sync](https://github.com/bitembassy/home-node#take-a-break-to-sync) --
   * [Lightning node (c-lightning)](https://github.com/bitembassy/home-node#c-lightning)
   * [Spark Lightning wallet](https://github.com/bitembassy/home-node#spark-wallet)
 * [Adding to startup](https://github.com/bitembassy/home-node#startup-services)
