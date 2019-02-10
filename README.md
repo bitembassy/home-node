@@ -1,6 +1,6 @@
 # Setting up a full Bitcoin Lightning node and wallet
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
-* [Security hardenings / Tor](https://github.com/bitembassy/home-node#security) 
+* [Preparing the environment](https://github.com/bitembassy/home-node#preparing-the-environment)
 * [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
 * [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
 * [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
@@ -14,15 +14,17 @@
 
 > Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
 
-## Updates
+## Preparing the environment
+
+### Updates
 ```bash
 # Fetch the list of available updates, upgrade current
-sudo apt-get update &&   
+sudo apt-get update &&
 sudo apt-get upgrade -y &&
 sudo apt-get autoremove -y
 ```
 
-## Security
+### Security
 ```bash
 # Setup firewall
 sudo ufw enable &&
@@ -34,7 +36,7 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
 
-## Environment
+### Common dependencies
 
 ```bash
 sudo apt install -y nodejs npm git &&
@@ -43,6 +45,8 @@ sudo apt install -y nodejs npm git &&
 mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
 echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.profile
 ```
+
+### GPG keyservers
 
 At the time of writing, the default gpg keyservers appears to be unavailable.
 They can be changed to Ubuntu's keyservers with:
