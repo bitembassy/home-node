@@ -1,7 +1,8 @@
 # Setting up a full Bitcoin Lightning node and wallet
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
 * [Preparing the environment](https://github.com/bitembassy/home-node#preparing-the-environment)
-* Software packages:
+* Services:
+  * [Tor](https://github.com/bitembassy/home-node#tor)
   * [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
   * [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
   * [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
@@ -55,7 +56,7 @@ They can be changed to Ubuntu's keyservers with:
 echo 'keyserver hkp://keyserver.ubuntu.com' | tee -a ~/.gnupg/gpg.conf
 ```
 
-### Tor
+## Tor
 
 To install Tor as a system service:
 
