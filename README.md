@@ -36,7 +36,12 @@ sudo ufw allow from 127.0.0.1 to any &&
 echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 ```
 
-Edit `/etc/sysctl.conf`, add [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf).
+Edit `/etc/sysctl.conf`
+```bash
+gedit /etc/sysctl.conf
+```
+Copy [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf), paste at the bottom and save.
+
 
 ### Common dependencies
 
