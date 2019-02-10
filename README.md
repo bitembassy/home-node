@@ -21,9 +21,9 @@
 ### Updates
 ```bash
 # Fetch the list of available updates, upgrade current
-sudo apt-get update &&
-sudo apt-get upgrade -y &&
-sudo apt-get autoremove -y
+sudo apt update &&
+sudo apt upgrade -y &&
+sudo apt autoremove -y
 ```
 
 ### Security
