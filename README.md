@@ -44,7 +44,7 @@ sudo apt install -y nodejs npm git &&
 
 # Install global npm packages to ~/.npm-global (prevents permission headaches, see https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 mkdir ~/.npm-global && npm config set prefix '~/.npm-global' &&
-echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile && source ~/.profile
+echo 'export PATH=~/.npm-global/bin:$PATH' | tee -a ~/.profile ~/.bashrc && source ~/.profile
 ```
 
 ### GPG keyservers
