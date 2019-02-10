@@ -1,18 +1,18 @@
 # Setting up a full Bitcoin Lightning node and wallet
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
-* [Preparing the environment](https://github.com/bitembassy/home-node#preparing-the-environment)
+* [Preparing the environment](https://github.com/bitembassy/home-node/blob/master/README.md#preparing-the-environment)
 * Services:
-  * [Tor](https://github.com/bitembassy/home-node#tor)
-  * [Bitcoin Core](https://github.com/bitembassy/home-node#bitcoin-core)
-  * [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node#btc-rpc-explorer)
-  * [Electrum Wallet](https://github.com/bitembassy/home-node#electrum-wallet)
-  * [Electrum Personal Server](https://github.com/bitembassy/home-node#electrum-personal-server)
-  * -- [Take a break to sync](https://github.com/bitembassy/home-node#take-a-break-to-sync) --
-  * [Lightning node (c-lightning)](https://github.com/bitembassy/home-node#c-lightning)
-  * [Spark Lightning wallet](https://github.com/bitembassy/home-node#spark-wallet)
-* [Adding to startup](https://github.com/bitembassy/home-node#startup-services)
-* [LAN access](https://github.com/bitembassy/home-node#lan-access)
-* [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node#tor-hidden-services)
+  * [Tor](https://github.com/bitembassy/home-node/blob/master/README.md#tor)
+  * [Bitcoin Core](https://github.com/bitembassy/home-node/blob/master/README.md#bitcoin-core)
+  * [Block Explorer (btc-rpc-explorer)](https://github.com/bitembassy/home-node/blob/master/README.md#btc-rpc-explorer)
+  * [Electrum Wallet](https://github.com/bitembassy/home-node/blob/master/README.md#electrum-wallet)
+  * [Electrum Personal Server](https://github.com/bitembassy/home-node/blob/master/README.md#electrum-personal-server)
+  * -- [Take a break to sync](https://github.com/bitembassy/home-node/blob/master/README.md#take-a-break-to-sync) --
+  * [Lightning node (c-lightning)](https://github.com/bitembassy/home-node/blob/master/README.md#c-lightning)
+  * [Spark Lightning wallet](https://github.com/bitembassy/home-node/blob/master/README.md#spark-wallet)
+* [Adding to startup](https://github.com/bitembassy/home-node/blob/master/README.md#startup-services)
+* [LAN access](https://github.com/bitembassy/home-node/blob/master/README.md#lan-access)
+* [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node/blob/master/README.md#tor-hidden-services)
 
 > Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
 
@@ -294,7 +294,7 @@ If you're importing an existing wallet with historical transactions, a rescan wi
 ## Take a break to sync
 Now is a good time to sit back and wait for all the Bitcoin blocks to download before continuing to the Lightning part. It will take quite a while. You can follow the progress on the terminal with `bitcoin-cli getblockchaininfo` or with btc-rpc-explorer on http://localhost:3002/node-status
 
-Meanwhile you may want to [setup startup services for bitcoind, btc-rpc-explorer and eps](https://github.com/bitembassy/home-node#stage-1-bitcoin-eps-btc-rpc-explorer) and test a restart.
+Meanwhile you may want to [setup startup services for bitcoind, btc-rpc-explorer and eps](https://github.com/bitembassy/home-node/blob/master/README.md#stage-1-bitcoin-eps-btc-rpc-explorer) and test a restart.
 
 Once the sync is complete, Electrum wallet should connect to EPS (a green circle on the bottom-right) and we can continue to the Lightning part!
 
