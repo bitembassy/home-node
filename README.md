@@ -299,6 +299,8 @@ Now is a good time to sit back and wait for all the Bitcoin blocks to download b
 
 Meanwhile you may want to [setup startup services for bitcoind, btc-rpc-explorer and eps](https://github.com/bitembassy/home-node/blob/master/README.md#stage-1-bitcoin-eps-btc-rpc-explorer) and test a restart.
 
+You may also continue to setting up remote access to btc-rpc-explorer and EPS from your [local network](https://github.com/bitembassy/home-node/blob/master/README.md#lan-access), or from anywhere using [Tor Hidden Services](https://github.com/bitembassy/home-node/blob/master/README.md#tor-hidden-services).
+
 Once the sync is complete, Electrum wallet should connect to EPS (a green circle on the bottom-right) and we can continue to the Lightning part!
 
 ## c-lightning
