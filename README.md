@@ -196,8 +196,10 @@ Create and edit `~/.config/btc-rpc-explorer.env`, add the following line to enab
 
 ```bash
 BTCEXP_BASIC_AUTH_PASSWORD=mySecretPassword
-
 ```
+
+> Note: don't forget to change `mySecretPassword` to your own password.
+> You can set the password to anything, it will be required to access the explorer.
 
 Refer to the [btc-rpc-explorer docs](https://github.com/janoside/btc-rpc-explorer) for the full list of options.
 
