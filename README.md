@@ -38,7 +38,7 @@ echo "tmpfs /run/shm tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
 
 Edit `/etc/sysctl.conf`
 ```bash
-gedit /etc/sysctl.conf
+sudo gedit /etc/sysctl.conf
 ```
 Copy [this](https://github.com/bitembassy/home-node/raw/master/misc/sysctl.conf), paste at the bottom and save.
 
