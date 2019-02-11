@@ -241,8 +241,6 @@ sudo ./setup.py install &&
 cd ~ && sudo rm -rf ~/electrum-installation
 ```
 
-TODO: ensure `pip3 install .` works without sudo (and remove this comment)
-
 ### Configuring
 ```
 # Connect to local EPS server only
