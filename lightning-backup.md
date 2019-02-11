@@ -59,6 +59,9 @@ gpg --verify keybase_amd64.deb.sig keybase_amd64.deb &&
 # Install system-wide (requires sudo)
 sudo apt install -y ./keybase_amd64.deb &&
 
+# Start service
+run_keybase &&
+
 # Cleanup installation files
 rm -rf ~/keybase-installation && cd ~
 ```
