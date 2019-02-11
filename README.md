@@ -281,7 +281,13 @@ cp ~/eps/config.cfg_sample ~/eps/config.cfg &&
 gedit ~/eps/config.cfg
 ```
 
-Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `config.cfg` under `[master-public-keys]` as a new line with `{name}={xpubkey}`. `name` can be anything. (The sample config already has this line, uncomment and replace sample xpubkey).
+Find your Master Public Key in electrum wallet (Wallet > Information) and add it to `config.cfg` under `[master-public-keys]` as a new line with `{wallet_name}={master_pubkey}`.
+`wallet_name` can be anything. For example:
+
+```bash
+mywallet=zpub6rFR7y4Q2AijBEqTUquhVz398htDFrtymD9xYYfG1m4wAcvPhXNfE3EfH1r1ADqtfSdVCToUG868RvUUkgDKf31mGDtKsAYz2oz2AGutZYs
+```
+
 
 Save `config.cfg`
 
