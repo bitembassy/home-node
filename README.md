@@ -208,7 +208,7 @@ Refer to the [btc-rpc-explorer docs](https://github.com/janoside/btc-rpc-explore
 btc-rpc-explorer
 ```
 
-Then open http://localhost:3002/ and login with an empty username and your `superSecretPassword`.
+Then open http://localhost:3002/node-status and login with an empty username and your `superSecretPassword`.
 
 ## Electrum Wallet
 
