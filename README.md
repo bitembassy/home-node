@@ -16,6 +16,8 @@
 
 > Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
 
+The accompanying slides [are available here](https://docs.google.com/presentation/d/1GTCn0uj1EWIMeppk4o0BVdwhx--jbjQDPlrIf2oaXjQ/edit?usp=sharing).
+
 ## Preparing the environment
 
 ### Updates
