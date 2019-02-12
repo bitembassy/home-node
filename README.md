@@ -180,6 +180,7 @@ bitcoin-cli getblockchaininfo
 ```bash
 # Download source
 git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer && cd ~/btc-rpc-explorer &&
+git checkout 1ca6f54b93a56d942a90f3e0072265c9df3b9e6c &&
 
 # Add signing key
 gpg --recv-keys F579929B39B119CC7B0BB71FB326ACF51F317B69 &&
@@ -275,7 +276,7 @@ sudo pip3 install .
 
 ### Configuring
 
-Copy the sample configuration file as `eps.cnf` and edit it:
+Copy the sample configuration file as `config.cfg` and edit it:
 ```
 cp ~/eps/config.cfg_sample ~/eps/config.cfg &&
 gedit ~/eps/config.cfg
