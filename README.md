@@ -272,8 +272,8 @@ gpg --recv-keys 0A8B038F5E10CC2789BFCFFFEF734EA677F31129 &&
 # Verify signature - should see 'Good signature from "Chris Belcher <false@email.com>"'
 git verify-commit HEAD &&
 
-# Install system-wide (requires sudo password)
-sudo pip3 install .
+# Install user-wide
+pip3 install --user .
 ```
 
 ### Configuring
