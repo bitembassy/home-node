@@ -225,17 +225,17 @@ sudo apt install -y python3-setuptools python3-pyqt5 python3-pip &&
 mkdir ~/electrum-installation && cd ~/electrum-installation &&
 
 # Download source
-wget https://download.electrum.org/3.3.2/Electrum-3.3.2.tar.gz &&
+wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz &&
 # Download signature
-wget https://download.electrum.org/3.3.2/Electrum-3.3.2.tar.gz.asc &&
+wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz.asc &&
 
 # Add signing key
 gpg --recv-keys 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 &&
 # Verify signature - should see "Good signature from Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>"
-gpg --verify Electrum-3.3.2.tar.gz.asc Electrum-3.3.2.tar.gz &&
+gpg --verify Electrum-3.3.4.tar.gz.asc Electrum-3.3.4.tar.gz &&
 
 # Unpack
-tar xvf Electrum-3.3.2.tar.gz && cd Electrum-3.3.2 &&
+tar xvf Electrum-3.3.4.tar.gz && cd Electrum-3.3.4 &&
 
 # Install dependencies
 pip3 install .[fast] &&
