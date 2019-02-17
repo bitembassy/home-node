@@ -350,6 +350,7 @@ Add the following and save:
 network=bitcoin
 
 # connect via Tor, comment to connect directly
+# might be wise to turn-off during initial sync
 proxy=127.0.0.1:9050
 
 # Peers won't be able to initiate the opening of new channels with this node (the node will initiate instead). To allow that, a static IP or a Tor hidden service must be configured.
