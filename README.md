@@ -113,7 +113,7 @@ Tor will automatically start running as a background service.
 To install the Tor Browser Bundle:
 
 ```bash
-sudo apt install -y tor torbrowser-launcher &&
+sudo apt install -y torbrowser-launcher &&
 
 # Fix for https://bugs.python.org/issue20087, necessary for torbrowser-launcher < 0.3
 sudo update-locale LANG=en_US.UTF-8 && source /etc/default/locale
