@@ -11,8 +11,6 @@ git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/light
 # Checkout v0.6.3 (latest stable)
 git checkout v0.6.3 &&
 
-# Add signing key
-gpg --recv-keys 15EE8D6CAB0E7F0CF999BFCBD9200E6CD1ADB8F1 &&
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
 git verify-tag v0.6.3 &&
 

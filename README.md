@@ -64,6 +64,42 @@ They can be changed to Ubuntu's keyservers with:
 echo 'keyserver hkp://keyserver.ubuntu.com' | tee -a ~/.gnupg/gpg.conf
 ```
 
+### Developer signing keys
+
+Add the public keys of the developers whose software we'll be using.
+This is required for later verifying their signatures.
+
+```bash
+gpg --recv-keys \
+
+# Wladimir J. van der Laan (Bitcoin Core binary release signing key) <laanwj@gmail.com>
+01EA5486DE18A882D4C2684590C8019E36C2E964 \
+
+# Thomas Voegtlin (Electrum maintainer) <thomasv@electrum.org>
+6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 \
+
+# Rusty Russell (Bitcoin Core contributor and c-lightning maintainer) <rusty@rustcorp.com.au>
+15EE8D6CAB0E7F0CF999BFCBD9200E6CD1ADB8F1 \
+
+# Chris Belcher (Electrum Personal Server and JoinMarket maintainer) <false@email.com>
+0A8B038F5E10CC2789BFCFFFEF734EA677F31129 \
+
+# Nadav Ivgi (Spark, Lightning Charge, Esplora) <nadav@shesek.info>
+FCF19B67866562F08A43AAD681F6104CD0F150FC \
+
+# Dan Janosik (btc-rpc-explorer maintainer) <dan@47.io>
+F579929B39B119CC7B0BB71FB326ACF51F317B69
+```
+
+> Please verify these keys! Some places to start looking:
+>
+> - https://bitcoincore.org/en/download/
+> - https://github.com/spesmilo/electrum/tree/master/pubkeys
+> - https://keybase.io/rusty
+> - https://tailsjoin.github.io/
+> - https://github.com/shesek/spark-wallet#code-signing--reproducible-builds
+> - https://keybase.io/danjanosik
+
 ## Tor
 
 To install Tor as a system service:
@@ -98,8 +134,6 @@ wget https://bitcoincore.org/bin/bitcoin-core-0.17.1/bitcoin-0.17.1-x86_64-linux
 # Download signature
 wget https://bitcoincore.org/bin/bitcoin-core-0.17.1/SHA256SUMS.asc &&
 
-# Add signing key
-gpg --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964 &&
 # Verify signature - should see "Good signature from Wladimir J. van der Laan (Bitcoin Core binary release signing key) <laanwj@gmail.com>"
 gpg --verify SHA256SUMS.asc &&
 # Verify the binary matches the signed hash in SHA256SUMS.asc - should see "bitcoin-0.17.1-x86_64-linux-gnu.tar.gz: OK"
@@ -181,8 +215,6 @@ bitcoin-cli getblockchaininfo
 git clone https://github.com/janoside/btc-rpc-explorer ~/btc-rpc-explorer && cd ~/btc-rpc-explorer &&
 git checkout 1ca6f54b93a56d942a90f3e0072265c9df3b9e6c &&
 
-# Add signing key
-gpg --recv-keys F579929B39B119CC7B0BB71FB326ACF51F317B69 &&
 # Verify signature - should see "Good signature from Dan Janosik <dan@47.io>"
 git verify-commit HEAD &&
 
@@ -226,8 +258,6 @@ wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz &&
 # Download signature
 wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz.asc &&
 
-# Add signing key
-gpg --recv-keys 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 &&
 # Verify signature - should see "Good signature from Thomas Voegtlin (https://electrum.org) <thomasv@electrum.org>"
 gpg --verify Electrum-3.3.4.tar.gz.asc Electrum-3.3.4.tar.gz &&
 
@@ -261,8 +291,6 @@ git clone https://github.com/chris-belcher/electrum-personal-server.git ~/eps &&
 # Checkout v0.1.6 (latest stable)
 git checkout eps-v0.1.6 &&
 
-# Add signing key
-gpg --recv-keys 0A8B038F5E10CC2789BFCFFFEF734EA677F31129 &&
 # Verify signature - should see 'Good signature from "Chris Belcher <false@email.com>"'
 git verify-commit HEAD &&
 
@@ -323,8 +351,6 @@ git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/light
 # Checkout v0.6.3 (latest stable)
 git checkout v0.6.3 &&
 
-# Add signing key
-gpg --recv-keys 15EE8D6CAB0E7F0CF999BFCBD9200E6CD1ADB8F1 &&
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
 git verify-tag v0.6.3 &&
 
@@ -385,8 +411,6 @@ wget https://github.com/shesek/spark-wallet/releases/download/v0.2.4/spark-walle
 # Download signature
 wget https://github.com/shesek/spark-wallet/releases/download/v0.2.4/SHA256SUMS.asc &&
 
-# Add signing key
-gpg --recv-keys FCF19B67866562F08A43AAD681F6104CD0F150FC &&
 # Verify signature - should show "Good signature from Nadav Ivgi <nadav@shesek.info>"
 gpg --verify SHA256SUMS.asc &&
 # Verify the downloaded binary matches the signed hash in SHA256SUMS.asc
