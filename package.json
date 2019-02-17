@@ -1,0 +1,9 @@
+{
+  "name": "home-node-utils",
+  "version": "0.1.0",
+  "author": "Bitcoin Embassy TLV",
+  "license": "MIT",
+  "scripts": {
+    "build-markdown": "./doc-utils/generate-markdown.js README.md.tmpl > README.md"
+  }
+}
