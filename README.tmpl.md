@@ -242,7 +242,7 @@ Electrum can now be opened from the launcher or using the command line with `ele
 ## Electrum Personal Server
 
 ### Installing
-```
+```bash
 {{include scripts/install-eps.sh no-cleanup}}
 ```
 

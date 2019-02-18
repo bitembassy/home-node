@@ -291,7 +291,7 @@ Electrum can now be opened from the launcher or using the command line with `ele
 ## Electrum Personal Server
 
 ### Installing
-```
+```bash
 # Download source
 git clone https://github.com/chris-belcher/electrum-personal-server.git ~/eps && cd ~/eps &&
 
