@@ -1,3 +1,6 @@
+<!-- Auto generated from the .tmpl.md file; DO NOT EDIT -->
+
+
 # Setting up a full Bitcoin Lightning node and wallet
 ### A step-by-step guide for setting up the perfect Bitcoin box on Ubuntu. Including:
 * [Preparing the environment](https://github.com/bitembassy/home-node/blob/master/README.md#preparing-the-environment)
