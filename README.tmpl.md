@@ -196,7 +196,7 @@ bitcoin-cli getblockchaininfo
 
 ### Installing
 ```bash
-{{include scripts/install-btc-rpc-explorer.sh no-cleanup}}
+{{include scripts/install-btc-rpc-explorer.sh}}
 ```
 
 ### Configuring
@@ -243,7 +243,7 @@ Electrum can now be opened from the launcher or using the command line with `ele
 
 ### Installing
 ```bash
-{{include scripts/install-eps.sh no-cleanup}}
+{{include scripts/install-eps.sh}}
 ```
 
 ### Configuring
@@ -288,7 +288,7 @@ Once the sync is complete, Electrum wallet should connect to EPS (a green circle
 
 ### Installing
 ```bash
-{{include scripts/install-clightning.sh no-cleanup}}
+{{include scripts/install-clightning.sh}}
 ```
 ### Configuring
 Create and edit `~/.lightning/config`
