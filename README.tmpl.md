@@ -69,6 +69,16 @@ echo 'keyserver hkp://keyserver.ubuntu.com' | tee -a ~/.gnupg/gpg.conf
 Add the public keys of the developers whose software we'll be using.
 This is required for later verifying their signatures.
 
+> Please verify these keys first! Some places to start looking:
+>
+> - https://bitcoincore.org/en/download/
+> - https://github.com/spesmilo/electrum/tree/master/pubkeys
+> - https://keybase.io/rusty
+> - https://tailsjoin.github.io/
+> - https://github.com/shesek/spark-wallet#code-signing--reproducible-builds
+> - https://keybase.io/danjanosik
+
+
 ```bash
 gpg --recv-keys \
 
@@ -90,15 +100,6 @@ FCF19B67866562F08A43AAD681F6104CD0F150FC \
 # Dan Janosik (btc-rpc-explorer maintainer) <dan@47.io>
 F579929B39B119CC7B0BB71FB326ACF51F317B69
 ```
-
-> Please verify these keys! Some places to start looking:
->
-> - https://bitcoincore.org/en/download/
-> - https://github.com/spesmilo/electrum/tree/master/pubkeys
-> - https://keybase.io/rusty
-> - https://tailsjoin.github.io/
-> - https://github.com/shesek/spark-wallet#code-signing--reproducible-builds
-> - https://keybase.io/danjanosik
 
 ## Tor
 
