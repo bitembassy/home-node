@@ -131,16 +131,19 @@ mkdir -p ~/bitcoin-installation && cd ~/bitcoin-installation && rm -rf * &&
 
 # Download binaries
 wget https://bitcoincore.org/bin/bitcoin-core-0.17.1/bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
+
 # Download signature
 wget https://bitcoincore.org/bin/bitcoin-core-0.17.1/SHA256SUMS.asc &&
 
 # Verify signature - should see "Good signature from Wladimir J. van der Laan (Bitcoin Core binary release signing key) <laanwj@gmail.com>"
 gpg --verify SHA256SUMS.asc &&
+
 # Verify the binary matches the signed hash in SHA256SUMS.asc - should see "bitcoin-0.17.1-x86_64-linux-gnu.tar.gz: OK"
 grep bitcoin-0.17.1-x86_64-linux-gnu.tar.gz SHA256SUMS.asc | sha256sum -c - &&
 
 # Unpack binaries
 tar xvf bitcoin-0.17.1-x86_64-linux-gnu.tar.gz &&
+
 # Install binaries system-wide (requires password)
 sudo cp bitcoin-0.17.1/bin/* /usr/bin
 ```
@@ -255,6 +258,7 @@ mkdir -p ~/electrum-installation && cd ~/electrum-installation && rm -rf * &&
 
 # Download source
 wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz &&
+
 # Download signature
 wget https://download.electrum.org/3.3.4/Electrum-3.3.4.tar.gz.asc &&
 
@@ -266,6 +270,7 @@ tar xvf Electrum-3.3.4.tar.gz && cd Electrum-3.3.4 &&
 
 # Install dependencies
 pip3 install .[fast] &&
+
 # Install system-wide (requires sudo password)
 sudo ./setup.py install
 ```
@@ -288,6 +293,7 @@ Electrum can now be opened from the launcher or using the command line with `ele
 ```
 # Download source
 git clone https://github.com/chris-belcher/electrum-personal-server.git ~/eps && cd ~/eps &&
+
 # Checkout v0.1.6 (latest stable)
 git checkout eps-v0.1.6 &&
 
@@ -348,6 +354,7 @@ rm -rf ~/lightning &&
 
 # Download source
 git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
+
 # Checkout v0.6.3 (latest stable)
 git checkout v0.6.3 &&
 
@@ -408,11 +415,13 @@ mkdir -p ~/spark-installation && cd ~/spark-installation && rm -rf * &&
 
 # Download npm package
 wget https://github.com/shesek/spark-wallet/releases/download/v0.2.4/spark-wallet-0.2.4-npm.tgz &&
+
 # Download signature
 wget https://github.com/shesek/spark-wallet/releases/download/v0.2.4/SHA256SUMS.asc &&
 
 # Verify signature - should show "Good signature from Nadav Ivgi <nadav@shesek.info>"
 gpg --verify SHA256SUMS.asc &&
+
 # Verify the downloaded binary matches the signed hash in SHA256SUMS.asc
 grep spark-wallet-0.2.4-npm.tgz SHA256SUMS.asc | sha256sum -c - &&
 

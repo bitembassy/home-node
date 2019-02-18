@@ -8,6 +8,7 @@ rm -rf ~/lightning &&
 
 # Download source
 git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
+
 # Checkout v0.6.3 (latest stable)
 git checkout v0.6.3 &&
 
