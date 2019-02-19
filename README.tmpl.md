@@ -316,7 +316,7 @@ autolisten=false
 ```
 ### Running
 ```bash
-lightningd
+lightningd --log-level=debug
 ```
 To test c-lightning is running:
 ```bash
