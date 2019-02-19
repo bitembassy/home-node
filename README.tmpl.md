@@ -475,6 +475,7 @@ HiddenServiceVersion 3
 HiddenServicePort 50002 127.0.0.1:50002
 HiddenServicePort 3002 127.0.0.1:3002
 HiddenServicePort 9737 127.0.0.1:9737
+HiddenServicePort 9090 127.0.0.1:9090
 HiddenServicePort 22 127.0.0.1:22
 ```
 
@@ -487,6 +488,7 @@ Your onion server exposes the following services:
 - Port `50002`: Electrum Personal Server
 - Port `9737`: Spark Wallet
 - Port `3002`: btc-rpc-explorer
+- Port `9090`: Cockpit
 - Port `22`: SSH server
 
 For example, to access btc-rpc-explorer, open `[your-host-name].onion:3002` on any Tor Browser.
