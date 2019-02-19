@@ -16,6 +16,7 @@
 * [Adding to startup](https://github.com/bitembassy/home-node/blob/master/README.md#startup-services)
 * [LAN access](https://github.com/bitembassy/home-node/blob/master/README.md#lan-access)
 * [Tor Hidden Services for remote access](https://github.com/bitembassy/home-node/blob/master/README.md#tor-hidden-services)
+* [Updating software](https://github.com/bitembassy/home-node/blob/master/README.md#updating-software)
 
 > Note: a dedicated, always-online computer and a fresh Ubuntu 18.04 install are recommended. Some of the settings may interfere with existing software.
 
@@ -471,8 +472,6 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 # Download home-node repo
 git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node &&
 
-# Add signing key
-gpg --recv-keys FCF19B67866562F08A43AAD681F6104CD0F150FC &&
 # Verify signature - should see "Good signature from Nadav Ivgi <nadav@shesek.info>"
 git verify-commit HEAD &&
 
@@ -594,3 +593,35 @@ Your onion server exposes the following services:
 - Port `22`: SSH server
 
 For example, to access btc-rpc-explorer, open `[your-host-name].onion:3002` on any Tor Browser.
+
+
+## Updating software
+
+You can update the installed software by re-running the installation scripts.
+You can copy the commands from this README, or fetch and run them from git using:
+
+```bash
+# Download home-node repo
+git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node &&
+
+# Verify signature - should see "Good signature from Nadav Ivgi <nadav@shesek.info>"
+git verify-commit HEAD &&
+
+# To update bitcoin core
+./scripts/install-bitcoin.sh &&
+
+# To update c-lightning
+./scripts/install-clightning.sh &&
+
+# To update electrum
+./scripts/install-electrum.sh &&
+
+# To update electrum personal server
+./scripts/install-eps.sh &&
+
+# To update spark wallet
+./scripts/install-spark.sh &&
+
+# To update btc-rpc-explorer
+./scripts/install-btc-rpc-explorer.sh
+```
