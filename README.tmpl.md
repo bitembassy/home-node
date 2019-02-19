@@ -368,8 +368,6 @@ You may also use `--pairing-qr` to print a qr with the pairing url (useful for m
 # Download home-node repo
 git clone https://github.com/bitembassy/home-node ~/home-node && cd ~/home-node &&
 
-# Add signing key
-gpg --recv-keys FCF19B67866562F08A43AAD681F6104CD0F150FC &&
 # Verify signature - should see "Good signature from Nadav Ivgi <nadav@shesek.info>"
 git verify-commit HEAD &&
 
