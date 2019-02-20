@@ -314,7 +314,7 @@ autolisten=false
 ```
 ### Running
 ```bash
-lightningd
+lightningd --log-level=debug
 ```
 To test c-lightning is running:
 ```bash
@@ -481,7 +481,9 @@ Then restart with: `sudo service tor restart`
 
 To get your `.onion` hostname: `sudo cat /var/lib/tor/hidden_service/hostname`
 
-To make Spark aware of its `.onion` address: ```echo public-url=http://`sudo cat /var/lib/tor/hidden_service/hostname`:9737/ | tee -a ~/.spark-wallet/config```
+To make Spark aware of its `.onion` address, edit `~/.spark-wallet/config` and add a line with: `public-url=http://[your-host-name].onion:9737/`
+
+This can be done automatically with: ```echo public-url=http://`sudo cat /var/lib/tor/hidden_service/hostname`:9737/ | tee -a ~/.spark-wallet/config```
 
 Your onion server exposes the following services:
 
