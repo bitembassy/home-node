@@ -9,11 +9,11 @@ rm -rf ~/lightning &&
 # Download source
 git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
 
-# Checkout v0.6.3 (latest stable)
-git checkout v0.6.3 &&
+# Checkout v$CLIGHTNING_VERSION (latest stable)
+git checkout v$CLIGHTNING_VERSION &&
 
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
-git verify-tag v0.6.3 &&
+git verify-tag v$CLIGHTNING_VERSION &&
 
 # Build
 ./configure && make &&

@@ -82,22 +82,22 @@ This is required for later verifying their signatures.
 
 ```bash
 # Wladimir J. van der Laan (Bitcoin Core binary release signing key) <laanwj@gmail.com>
-gpg --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964 &&
+gpg --recv-keys $PGP_LAANWJ_BITCOIN &&
 
 # Thomas Voegtlin (Electrum maintainer) <thomasv@electrum.org>
-gpg --recv-keys 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 &&
+gpg --recv-keys $PGP_THOMAS_ELECTRUM &&
 
 # Rusty Russell (Bitcoin Core contributor and c-lightning maintainer) <rusty@rustcorp.com.au>
-gpg --recv-keys 15EE8D6CAB0E7F0CF999BFCBD9200E6CD1ADB8F1 &&
+gpg --recv-keys $PGP_RUSTY_CLIGHTNING &&
 
 # Chris Belcher (Electrum Personal Server and JoinMarket maintainer) <false@email.com>
-gpg --recv-keys 0A8B038F5E10CC2789BFCFFFEF734EA677F31129 &&
+gpg --recv-keys $PGP_BELCHER_EPS &&
 
 # Nadav Ivgi (Spark, Lightning Charge, Esplora) <nadav@shesek.info>
-gpg --recv-keys FCF19B67866562F08A43AAD681F6104CD0F150FC &&
+gpg --recv-keys $PGP_SHESEK_SPARK &&
 
 # Dan Janosik (btc-rpc-explorer maintainer) <dan@47.io>
-gpg --recv-keys F579929B39B119CC7B0BB71FB326ACF51F317B69
+gpg --recv-keys $PGP_JANOSIDE_BTCRPCEXP
 ```
 
 ## Tor

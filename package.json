@@ -4,6 +4,6 @@
   "author": "Bitcoin Embassy TLV",
   "license": "MIT",
   "scripts": {
-    "build-markdown": "./doc-utils/generate-markdown.js < README.tmpl.md > README.md"
+    "build-markdown": ". ./config.env && ./doc-utils/generate-markdown.js < README.tmpl.md > README.md"
   }
 }
