@@ -365,10 +365,10 @@ rm -rf ~/lightning &&
 git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
 
 # Checkout v0.6.3 (latest stable)
-git checkout v0.6.3 &&
+git checkout v0.7.0 &&
 
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
-git verify-tag v0.6.3 &&
+git verify-tag v0.7.0 &&
 
 # Build
 ./configure && make &&
