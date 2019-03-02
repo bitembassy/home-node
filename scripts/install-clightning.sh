@@ -9,7 +9,7 @@ rm -rf ~/lightning &&
 # Download source
 (git clone https://github.com/ElementsProject/lightning ~/lightning || git -C ~/lightning fetch) &&
 
-# Checkout v0.6.3 (latest stable)
+# Checkout latest stable
 cd ~/lightning && git checkout v0.7.0 &&
 
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
