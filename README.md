@@ -362,10 +362,10 @@ sudo apt install -y autoconf automake build-essential libtool libgmp-dev libsqli
 rm -rf ~/lightning &&
 
 # Download source
-git clone https://github.com/ElementsProject/lightning ~/lightning && cd ~/lightning &&
+(git clone https://github.com/ElementsProject/lightning ~/lightning || git -C ~/lightning fetch) &&
 
 # Checkout v0.6.3 (latest stable)
-git checkout v0.7.0 &&
+cd ~/lightning && git checkout v0.7.0 &&
 
 # Verify signature - should see: Good signature from "Rusty Russell <rusty@rustcorp.com.au>"
 git verify-tag v0.7.0 &&
