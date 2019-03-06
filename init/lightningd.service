@@ -45,4 +45,4 @@ PrivateDevices=true
 MemoryDenyWriteExecute=true
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=bitcoind.service

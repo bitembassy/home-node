@@ -23,4 +23,4 @@ NoNewPrivileges=true
 PrivateDevices=true
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=lightningd.service
