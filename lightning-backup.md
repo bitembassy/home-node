@@ -5,7 +5,7 @@ Make sure you keep a secure copy of it. Unlike the database a one-time backup is
 ## Backup the c-lightning database
 The c-lightning database should be backed up regularly as an up-to-date copy of it is required in order to recover channel funds in case of a data loss.
 
-> Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to lost of funds. The restore process is out of scope here and currently requires an expert help.
+> Warning: DO NOT TRY TO RESTORE A DATABASE BACKUP YOURSELF! Using an out-of-date database as-is may lead to loss of funds. The restore process is out of scope here and currently requires expert help.
 
 ### Create a backup script
 
